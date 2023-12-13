@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  APP
+  PROGRESS BAR
 </template>
 
 <style scoped>

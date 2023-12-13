@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  APP
+  SHOE
 </template>
 
 <style scoped>

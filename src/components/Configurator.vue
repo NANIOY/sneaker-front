@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  APP
+  CONFIGURATOR
 </template>
 
 <style scoped>
