@@ -1,7 +1,10 @@
+<script setup>
+
+</script>
+
 <template>
-    APP
+  APP
 </template>
-  
-<style>
+
+<style scoped>
 </style>
-  
