@@ -9,6 +9,14 @@
   --black-gradient: linear-gradient(45deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 100%);
 }
 
+.text__color--white {
+  color: var(--white);
+}
+
+.text__color--black {
+  color: var(--black);
+}
+
 /* global styles */
 .body {
   background-color: var(--white);
