@@ -1,11 +1,20 @@
 <template>
   <div class="login-panel__block gradient-background">
-    <h1 class="login-panel__block__title header header__1">Log in</h1>
-    <form class="login-panel__block__form" @submit.prevent="login">
-      <input class="login-panel__block__input" type="text" v-model="username" placeholder="Username" />
-      <input class="login-panel__block__input" type="password" v-model="password" placeholder="Password" />
+
+    <h1 class="login-panel__block__title header header__large">Log in</h1>
+
+    <form class="login-panel__block__form text" @submit.prevent="login">
+
+      <label class="text__large input__label" for="username">Username</label>
+      <input class="login-panel__block__input" id="username" type="text" v-model="username" placeholder="Username" />
+
+      <label class="text__large input__label" for="username">Password</label>
+      <input class="login-panel__block__input" id="password" type="password" v-model="password" placeholder="Password" />
+
       <Button class="login-panel__block__button" @click="login">Log in</Button>
+
     </form>
+    
   </div>
 </template>
 
