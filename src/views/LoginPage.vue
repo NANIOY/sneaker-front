@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     handleLogin(credentials) {
-      fetch('http://example.com/auth/login', {
+      fetch('https://sneaker-back.onrender.com/api/v1/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
