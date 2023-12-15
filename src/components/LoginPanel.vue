@@ -34,5 +34,12 @@ export default {
 </script>
 
 <style>
-/* Your CSS styles for the login panel */
+
+.login-panel__block, .login-panel__block__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
 </style>
