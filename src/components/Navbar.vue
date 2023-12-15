@@ -1,3 +1,17 @@
+<template>
+  <div class="navbar surface__dark">
+    <div class="navbar__content">
+      <div class="navbar__logo">
+        <LogoComponent />
+      </div>
+      <div class="navbar__buttons">
+        <NavButton label="Orders" :active="isOrdersActive" @toggleActive="toggleActive" />
+        <NavButton label="Profile" :active="isProfileActive" @toggleActive="toggleActive" />
+      </div>
+    </div>
+  </div>
+</template>
+
 <script>
 import LogoComponent from '../components/LogoComponent.vue';
 import NavButton from '../components/Buttons/NavButton.vue';
@@ -27,27 +41,30 @@ export default {
 };
 </script>
 
-<template>
-  <div class="navbar surface__dark">
-    <LogoComponent />
-    <div class="nav-buttons">
-      <NavButton label="Orders" :active="isOrdersActive" @toggleActive="toggleActive" />
-      <NavButton label="Profile" :active="isProfileActive" @toggleActive="toggleActive" />
-    </div>
-  </div>
-</template>
-
 <style scoped>
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   align-items: center;
-  padding: 0 16px;
   height: 72px;
+  padding: 0 1rem;
 }
 
-.nav-buttons {
+.navbar__content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 100vw;
+}
+
+.navbar__logo {
+  padding-left: 156px;
+}
+
+.navbar__buttons {
   display: flex;
   gap: 16px;
+  justify-content: center;
+  flex-grow: 1;
 }
 </style>
