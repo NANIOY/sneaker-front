@@ -1,25 +1,25 @@
 <template>
-  <button @click="toggleSortOrder">
-    Sort Order: {{ sortOrder }}
-  </button>
+  <div class="button button__normal text__color--black" @click="toggleSortOrder">
+    <span> Sort Order: {{ sortOrder }}</span>
+  </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      sortOrder: 'desc'
-    };
+  props: {
+    sortOrder: String
   },
   methods: {
     toggleSortOrder() {
-      this.sortOrder = this.sortOrder === 'desc' ? 'asc' : 'desc';
-      this.$emit('sort-changed', this.sortOrder);
+      this.$emit('sort-changed', this.sortOrder === 'asc' ? 'desc' : 'asc');
     }
   }
 };
 </script>
 
-<style>
-/* Your CSS styles for SortingButton */
+<style scoped>
+div {
+  cursor: pointer;
+  user-select: none;
+}
 </style>
