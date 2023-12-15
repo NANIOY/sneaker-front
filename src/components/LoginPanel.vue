@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import Button from '../components/AuthButton.vue';
+import Button from '../components/Buttons/AuthButton.vue';
 
 export default {
   components: {
