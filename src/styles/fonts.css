@@ -4,78 +4,74 @@
   --font-space-grotesk: 'space-grotesk', sans-serif;
 }
 
-/* global styles */
-.body {
-  font-family: var(--font-space-grotesk);
-  font-size: 16px;
-  line-height: 140%;
+@font-face {
+  font-family: 'unbounded';
+  src: url('../assets/fonts/unbounded.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'space-grotesk';
+  src: url('../assets/fonts/space-grotesk.ttf') format('truetype');
 }
 
 /* header block */
-h1, h2, h3 {
-  & {
-    font-family: var(--font-unbounded);
-  }
+.header {
+  font-family: var(--font-unbounded);
+  font-weight: bold;
+}
 
-  &__1 {
-    font-size: 64px;
-    font-weight: bold;
-  }
+.header__1 {
+  font-size: 64px;
+}
 
-  &__2 {
-    font-size: 48px;
-    font-weight: bold;
-  }
+.header__2 {
+  font-size: 48px;
+}
 
-  &__3 {
-    font-size: 24px;
-    font-weight: medium;
-  }
+.header__3 {
+  font-size: 24px;
+  font-weight: medium;
+}
+
+.body {
+  font-family: var(--font-space-grotesk);
+  line-height: 140%;
+  font-weight: regular;
 }
 
 /* body block */
-.body {
-  &__large {
-    font-size: 20px;
-    font-weight: regular;
-  }
+.body__large {
+  font-size: 20px;
+}
 
-  &__normal {
-    font-size: 16px;
-    font-weight: regular;
-  }
+.body__normal {
+  font-size: 16px;
+}
 
-  &__small {
-    font-size: 12px;
-    font-weight: regular;
-  }
+.body__small {
+  font-size: 12px;
+}
 
-  &__xs {
-    font-size: 8px;
-    font-weight: regular;
-  }
+.body__xs {
+  font-size: 8px;
 }
 
 /* button block */
 .button {
-  &__large {
-    font-size: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-    line-height: 1;
-  }
+  font-family: var(--font-space-grotesk);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1;
+}
 
-  &__normal {
-    font-size: 16px;
-    font-weight: bold;
-    text-transform: uppercase;
-    line-height: 1;
-  }
+.button__large {
+  font-size: 20px;
+}
 
-  &__small {
-    font-size: 12px;
-    font-weight: bold;
-    text-transform: uppercase;
-    line-height: 1;
-  }
+.button__normal {
+  font-size: 16px;
+}
+
+.button__small {
+  font-size: 12px;
 }

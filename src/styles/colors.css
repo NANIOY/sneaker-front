@@ -27,14 +27,12 @@
 }
 
 /* shoe types block */
-.shoe {
-  &__purple {
-    color: var(--purple);
-  }
+.shoe__purple {
+  color: var(--purple);
+}
 
-  &__yellow {
-    color: var(--yellow);
-  }
+.shoe__yellow {
+  color: var(--yellow);
 }
 
 /* gradient background block */
