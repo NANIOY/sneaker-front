@@ -10,7 +10,7 @@
         <p class="text text--userid text__small text__color--black">{{ userId }}</p>
       </div>
       <div class="shoe-status surface__dark">
-        <span class="text text__normal text__color--white">{{ status }}</span>
+        <span class="text text__small text__color--white">{{ status }}</span>
       </div>
     </div>
     <DetailsButton />
