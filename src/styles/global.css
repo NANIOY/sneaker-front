@@ -7,13 +7,4 @@
     padding: 9px 12px;
     width: 374px;
 }
-
-body {
-    margin: 0 156px
-  }
   
-  @media (max-width: 768px) {
-    body {
-      margin: 0 20px;
-    }
-  }
