@@ -1,13 +1,12 @@
 <template>
   <div class="navbar">
-    <NavButton label="Orders" iconSrc="../../assets/icons/orders-active.webp" :active="isOrdersActive" />
-    <NavButton label="Profile" iconSrc="../assets/icons/profile.webp" :active="isProfileActive" />
+    <NavButton label="Orders" :active="isOrdersActive" @toggleActive="toggleActive" />
+    <NavButton label="Profile" :active="isProfileActive" @toggleActive="toggleActive" />
   </div>
 </template>
 
 <script>
 import NavButton from '../components/Buttons/NavButton.vue';
-
 
 export default {
   components: {
@@ -19,8 +18,20 @@ export default {
       isProfileActive: false,
     };
   },
+  methods: {
+    toggleActive(clickedLabel) {
+      if (clickedLabel === 'Orders') {
+        this.isOrdersActive = true;
+        this.isProfileActive = false;
+      } else if (clickedLabel === 'Profile') {
+        this.isOrdersActive = false;
+        this.isProfileActive = true;
+      }
+    },
+  },
 };
 </script>
 
 <style scoped>
+/* Add your styles for the navbar */
 </style>

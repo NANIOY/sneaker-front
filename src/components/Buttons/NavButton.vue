@@ -1,6 +1,5 @@
 <template>
-    <div @click="handleClick" :class="{ active: active }">
-      <img :src="iconSrc" alt="Icon" class="icon" />
+    <div @click="handleClick" :class="{ 'button__active': active, 'button__default': !active }">
       <span class="button button__large">{{ label }}</span>
     </div>
   </template>
@@ -9,12 +8,11 @@
   export default {
     props: {
       label: String,
-      iconSrc: String,
       active: Boolean,
     },
     methods: {
       handleClick() {
-        console.log(`${this.label} Button Clicked!`);
+        this.$emit('toggleActive', this.label);
       },
     },
   };
@@ -28,16 +26,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--green);
   }
   
-  .icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 8px;
-  }
-  
-  /* Media query for responsiveness */
   @media (max-width: 144px) {
     div {
       max-width: 100%;
