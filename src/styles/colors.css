@@ -15,6 +15,11 @@
   color: var(--black);
 }
 
+/* header block */
+.header {
+  color: var(--white);
+}
+
 /* button block */
 .button {
   background-color: var(--green);

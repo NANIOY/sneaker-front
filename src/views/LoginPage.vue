@@ -1,5 +1,5 @@
 <template>
-  <div class="login-page">
+  <div class="login-page__block">
     <logo-component></logo-component>
     <login-panel @login="handleLogin"></login-panel>
   </div>
@@ -38,5 +38,11 @@ export default {
 </script>
 
 <style>
-/* Your CSS styles */
+@import '../styles/colors.css';
+@import '../styles/fonts.css';
+
+body {
+  background-image: url('../assets/images/bg_login.webp');
+}
+
 </style>

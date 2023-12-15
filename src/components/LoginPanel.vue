@@ -1,9 +1,9 @@
 <template>
-  <div class="login-panel">
-    <form @submit.prevent="login">
-      <input type="text" v-model="username" placeholder="Username" />
-      <input type="password" v-model="password" placeholder="Password" />
-      
+  <div class="login-panel__block gradient-background">
+    <h1 class="login-panel__block__title header header__1">Log in</h1>
+    <form class="login-panel__block__form" @submit.prevent="login">
+      <input class="login-panel__block__input" type="text" v-model="username" placeholder="Username" />
+      <input class="login-panel__block__input" type="password" v-model="password" placeholder="Password" />
       <Button @click="login">Log in</Button>
     </form>
   </div>
@@ -34,4 +34,5 @@ export default {
 </script>
 
 <style>
+/* Your CSS styles for the login panel */
 </style>

@@ -1,2 +1,9 @@
 @import './colors.css';
 @import './fonts.css';
+
+.login-panel__block__input {
+    background: transparent;
+    border: 1px solid var(--white);
+    padding: 9px 12px;
+    width: 400px;
+}
