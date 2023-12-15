@@ -8,7 +8,6 @@
 <script>
 import LoginPanel from '../components/LoginPanel.vue';
 import LogoComponent from '../components/LogoComponent.vue';
-import Button from '../components/Button.vue';
 
 export default {
   components: {

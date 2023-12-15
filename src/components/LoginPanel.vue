@@ -3,13 +3,19 @@
     <form @submit.prevent="login">
       <input type="text" v-model="username" placeholder="Username" />
       <input type="password" v-model="password" placeholder="Password" />
-      <button type="submit">Log in</button>
+      
+      <Button @click="login">Log in</Button>
     </form>
   </div>
 </template>
 
 <script>
+import Button from '../components/AuthButton.vue';
+
 export default {
+  components: {
+    Button
+  },
   data() {
     return {
       username: '',
@@ -28,5 +34,4 @@ export default {
 </script>
 
 <style>
-/* Your CSS styles for the login panel */
 </style>
