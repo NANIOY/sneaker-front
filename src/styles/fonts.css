@@ -20,39 +20,39 @@
   font-weight: bold;
 }
 
-.header__1 {
+.header__large {
   font-size: 64px;
 }
 
-.header__2 {
+.header__medium {
   font-size: 48px;
 }
 
-.header__3 {
+.header__small {
   font-size: 24px;
   font-weight: medium;
 }
 
-.body {
+.text {
   font-family: var(--font-space-grotesk);
   line-height: 140%;
   font-weight: regular;
 }
 
 /* body block */
-.body__large {
+.text__large {
   font-size: 20px;
 }
 
-.body__normal {
+.text__normal {
   font-size: 16px;
 }
 
-.body__small {
+.text__small {
   font-size: 12px;
 }
 
-.body__xs {
+.text__xs {
   font-size: 8px;
 }
 
