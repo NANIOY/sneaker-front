@@ -1,27 +1,21 @@
 <template>
-    <button class="details-button">
-      <span class="button-text">Details</span>
+    <button class="details-button surface__dark">
+        <span class="button button__small text__color--white">Details</span>
     </button>
-  </template>
+</template>
   
-  <script>
-  export default {
+<script>
+export default {
     name: 'DetailsButton',
-  };
-  </script>
+};
+</script>
   
-  <style scoped>
-  .details-button {
+<style scoped>
+.details-button {
     width: 100%;
     height: 28px;
-    background-color: var(--black);
-    color: var(--white);
     border: none;
     cursor: pointer;
-  }
-  
-  .button-text {
-    font-size: 14px;
-  }
-  </style>
+}
+</style>
   
