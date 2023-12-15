@@ -37,7 +37,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 @import '../styles/colors.css';
 @import '../styles/fonts.css';
 
