@@ -1,42 +1,40 @@
 <template>
   <div>
-    <Navbar />
-    <SortingButton @sort-changed="sortChanged" />
-    <div class="shoes-container">
-      <ShoeObject
-        v-for="shoe in shoes"
-        :key="shoe.userId"
-        :shoe-type="shoe.shoeType"
-        :user-name="shoe.userName"
-        :user-email="shoe.userEmail"
-        :user-id="shoe.userId"
-        :status="shoe.status"
-        :color="shoe.shoeType === 'Type1' ? '#FFEE54' : '#9D70FF'"
-      />
+    <div v-if="loading">Loading...</div>
+    <div v-else>
+      <div v-for="shoe in shoes" :key="shoe._id">
+        <ShoeObject
+          :shoe-type="shoe.color"
+          :user-name="shoe.contactInfo"
+          :user-email="shoe.contactInfo"
+          :user-id="shoe._id"
+          :status="shoe.status"
+          :color="shoe.color"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import Navbar from '../components/Navbar.vue';
-import SortingButton from '../components/SortingButton.vue';
 import ShoeObject from '../components/ShoeObject.vue';
 
 export default {
   components: {
-    Navbar,
-    SortingButton,
-    ShoeObject
+    ShoeObject,
   },
   data() {
     return {
+      loading: true,
       shoes: [],
-      sortOrder: 'desc' // default sort order
     };
+  },
+  created() {
+    this.fetchShoes();
   },
   methods: {
     fetchShoes() {
-      fetch(`https://sneaker-back.onrender.com/api/v1/shoes?sortorder=${this.sortOrder}`)
+      fetch('https://sneaker-back.onrender.com/api/v1/shoes')
         .then(response => {
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -44,23 +42,15 @@ export default {
           return response.json();
         })
         .then(data => {
-          this.shoes = data;
+          console.log('Fetched data:', data);
+          this.shoes = data.data.shoeOrders;
+          this.loading = false;
         })
         .catch(error => {
           console.error('There was a problem with the fetch operation:', error);
+          this.loading = false;
         });
     },
-    sortChanged(newSortOrder) {
-      this.sortOrder = newSortOrder;
-      this.fetchShoes();
-    }
   },
-  created() {
-    this.fetchShoes();
-  }
 };
 </script>
-
-<style>
-/* Your CSS styles */
-</style>
