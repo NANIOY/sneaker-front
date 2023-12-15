@@ -13,9 +13,7 @@
         <span class="text text__normal text__color--white">{{ status }}</span>
       </div>
     </div>
-    <div class="details-button-container">
-      <DetailsButton />
-    </div>
+    <DetailsButton />
   </div>
 </template>
 
@@ -31,19 +29,23 @@ export default {
 </script>
 
 <style scoped>
-.shoe-object__block {
+.shoe-object {
   width: 384px;
+  height: 240px;
+}
+
+.shoe-object__block {
+  width: 100%;
   height: 212px;
-  border: 1px solid;
+  box-shadow: 0 0 0 1px inset;
   display: flex;
   justify-content: space-between;
   align-items: end;
-  padding: 12px;
   position: relative;
 }
 
 .shoe-object__details {
-  flex-grow: 2;
+  padding: 0 0 12px 12px;
 }
 
 h1 {
