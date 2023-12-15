@@ -1,7 +1,7 @@
 <template>
   <div class="login-page__block">
-    <logo-component></logo-component>
-    <login-panel @login="handleLogin"></login-panel>
+    <logo-component class="login-page__logo"></logo-component>
+    <login-panel class="login-page__panel" @login="handleLogin"></login-panel>
   </div>
 </template>
 
@@ -43,6 +43,21 @@ export default {
 
 body {
   background-image: url('../assets/images/bg_login.webp');
+  overflow-y: hidden;
+}
+
+.login-page__block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: 0;
+  height: 100vh;
+}
+
+.login-page__logo {
+ margin-left: 156px;
 }
 
 </style>
