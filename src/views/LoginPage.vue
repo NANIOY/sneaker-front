@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     handleLogin(credentials) {
-      fetch('https://sneaker-back.onrender.com/api/v1/', {
+      fetch('https://sneaker-back.onrender.com/api/v1/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
