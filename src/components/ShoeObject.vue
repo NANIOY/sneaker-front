@@ -1,5 +1,5 @@
 <template>
-  <div class="shoe-object__block" :style="{ borderColor: color }">
+  <div class="shoe-object__block">
     <div class="shoe-details">
       <h1 class="header header__small">{{ shoeType }}</h1>
       <div class="shoe-object__user">
@@ -8,14 +8,19 @@
       </div>
       <p class="text text--userid text__small text__color--black">{{ userId }}</p>
     </div>
-    <div class="shoe-status surface__dark" :style="{ backgroundColor: color }">
+    <div class="shoe-status surface__dark">
       <span class="text text__normal text__color--white">{{ status }}</span>
     </div>
   </div>
 </template>
 
 <script>
+import DetailsButton from '../components/Buttons/DetailsButtons.vue';
+
 export default {
+  components: {
+    DetailsButton,
+  },
   props: ['shoeType', 'userName', 'userEmail', 'userId', 'status'],
 };
 </script>
@@ -23,7 +28,7 @@ export default {
 <style scoped>
 .shoe-object__block {
   width: 384px;
-  height: 240px;
+  height: 212px;
   border: 1px solid;
   display: flex;
   justify-content: space-between;
