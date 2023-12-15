@@ -1,10 +1,20 @@
-<script setup>
+<script>
+import Navbar from '../components/Navbar.vue';
 
+export default {
+  components: {
+    Navbar,
+  },
+};
 </script>
 
 <template>
-  HOMEPAGE
+  <div>
+    <Navbar />
+  </div>
 </template>
+  
 
 <style scoped>
+/* Your homepage styles */
 </style>
