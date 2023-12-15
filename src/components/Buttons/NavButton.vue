@@ -1,37 +1,37 @@
 <template>
     <div @click="handleClick" :class="{ 'button__active': active, 'button__default': !active }">
-      <span class="button button__large">{{ label }}</span>
+        <span class="button button__large">{{ label }}</span>
     </div>
-  </template>
+</template>
   
-  <script>
-  export default {
+<script>
+export default {
     props: {
-      label: String,
-      active: Boolean,
+        label: String,
+        active: Boolean,
     },
     methods: {
-      handleClick() {
-        this.$emit('toggleActive', this.label);
-      },
+        handleClick() {
+            this.$emit('toggleActive', this.label);
+        },
     },
-  };
-  </script>
+};
+</script>
   
-  <style scoped>
-  div {
+<style scoped>
+div {
     cursor: pointer;
     max-width: 144px;
     height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  @media (max-width: 144px) {
+}
+
+@media (max-width: 144px) {
     div {
-      max-width: 100%;
+        max-width: 100%;
     }
-  }
-  </style>
+}
+</style>
   
