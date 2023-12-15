@@ -37,15 +37,7 @@ export default {
 };
 </script>
 
-<style scoped>
-@import '../styles/colors.css';
-@import '../styles/fonts.css';
-
-body {
-  background-image: url('../assets/images/bg_login.webp');
-  overflow-y: hidden;
-}
-
+<style>
 .login-page__block {
   display: flex;
   flex-direction: row;
@@ -54,6 +46,8 @@ body {
   margin-left: auto;
   margin-right: 0;
   height: 100vh;
+  background-image: url('../assets/images/bg_login.webp');
+
 }
 
 .login-page__logo {
