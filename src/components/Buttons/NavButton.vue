@@ -22,6 +22,7 @@ export default {
 div {
     cursor: pointer;
     max-width: 144px;
+    width: 144px;
     height: 48px;
     display: flex;
     align-items: center;
