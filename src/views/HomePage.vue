@@ -1,16 +1,11 @@
 <template>
-  <Navbar />
   <div>
+    <Navbar />
     <div v-if="loading">Loading...</div>
-    <div v-else>
-      <div v-for="shoe in shoes" :key="shoe._id">
-        <ShoeObject
-          :shoe-type="shoe.shoeType"
-          :user-name="shoe.userName"
-          :user-email="shoe.userEmail"
-          :user-id="shoe._id"
-          :status="shoe.status"
-        />
+    <div v-else class="shoes-container">
+      <div class="shoe-object" v-for="shoe in shoes" :key="shoe._id">
+        <ShoeObject :shoe-type="shoe.shoeType" :user-name="shoe.userName" :user-email="shoe.userEmail" :user-id="shoe._id"
+          :status="shoe.status" />
       </div>
     </div>
   </div>
@@ -56,3 +51,16 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.shoes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 156px;
+}
+
+.shoe-object {
+  margin-bottom: 12px;
+}
+</style>
