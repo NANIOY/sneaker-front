@@ -1,5 +1,3 @@
-<!-- Button.vue -->
-
 <template>
     <div class="button button__normal" @click="handleClick">
       <slot></slot>
@@ -27,7 +25,6 @@
     justify-content: center;
   }
   
-  /* Media query for responsiveness */
   @media (max-width: 400px) {
     .custom-button {
       max-width: 100%;
