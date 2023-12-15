@@ -1,4 +1,5 @@
 <template>
+  <Navbar />
   <div>
     <div v-if="loading">Loading...</div>
     <div v-else>
@@ -18,10 +19,12 @@
 
 <script>
 import ShoeObject from '../components/ShoeObject.vue';
+import Navbar from '../components/Navbar.vue';
 
 export default {
   components: {
     ShoeObject,
+    Navbar,
   },
   data() {
     return {
