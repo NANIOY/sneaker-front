@@ -4,7 +4,7 @@
     <form class="login-panel__block__form" @submit.prevent="login">
       <input class="login-panel__block__input" type="text" v-model="username" placeholder="Username" />
       <input class="login-panel__block__input" type="password" v-model="password" placeholder="Password" />
-      <Button @click="login">Log in</Button>
+      <Button class="login-panel__block__button" @click="login">Log in</Button>
     </form>
   </div>
 </template>
@@ -35,11 +35,21 @@ export default {
 
 <style>
 
+.login-panel__block {
+  width: fit-content;
+  height: fit-content;
+  padding: 40px 80px;
+}
+
 .login-panel__block, .login-panel__block__form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
 
+.login-panel__block__button {
+  margin-top: 40px;
+  
 }
 </style>
