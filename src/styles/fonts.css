@@ -75,3 +75,10 @@
 .button__small {
   font-size: 12px;
 }
+
+/* input */
+.input__text {
+  font-family: var(--font-space-grotesk);
+  font-weight: regular;
+  font-size: 16px;
+}

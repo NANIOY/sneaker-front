@@ -15,7 +15,7 @@
   color: var(--black);
 }
 
-.input__label {
+.label, .input {
   color: var(--white);
 }
 
