@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  LOGO COMPONENT
+  <img src="../assets/SWEAR_Logo_landscape_white.webp" alt="SWEAR logo">
 </template>
 
 <style scoped>
