@@ -25,9 +25,13 @@
 }
 
 /* button block */
-.button {
+.button__active {
   background-color: var(--green);
   color: var(--black);
+}
+
+.button__default {
+  color: var(--white);
 }
 
 /* placeholder block */
