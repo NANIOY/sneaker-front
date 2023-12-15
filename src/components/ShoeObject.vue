@@ -1,15 +1,20 @@
 <template>
-  <div class="shoe-object__block">
-    <div class="shoe-details">
-      <h1 class="header header__small">{{ shoeType }}</h1>
-      <div class="shoe-object__user">
-        <p class="text text__normal text__color--black">{{ userName }}</p>
-        <p class="text text__normal text__color--black">{{ userEmail }}</p>
+  <div class="shoe-object">
+    <div class="shoe-object__block">
+      <div class="shoe-object__details">
+        <h1 class="header header__small">{{ shoeType }}</h1>
+        <div class="shoe-object__user">
+          <p class="text text__normal text__color--black">{{ userName }}</p>
+          <p class="text text__normal text__color--black">{{ userEmail }}</p>
+        </div>
+        <p class="text text--userid text__small text__color--black">{{ userId }}</p>
       </div>
-      <p class="text text--userid text__small text__color--black">{{ userId }}</p>
+      <div class="shoe-status surface__dark">
+        <span class="text text__normal text__color--white">{{ status }}</span>
+      </div>
     </div>
-    <div class="shoe-status surface__dark">
-      <span class="text text__normal text__color--white">{{ status }}</span>
+    <div class="details-button-container">
+      <DetailsButton />
     </div>
   </div>
 </template>
@@ -37,7 +42,7 @@ export default {
   position: relative;
 }
 
-.shoe-details {
+.shoe-object__details {
   flex-grow: 2;
 }
 
