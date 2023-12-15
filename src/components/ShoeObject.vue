@@ -30,7 +30,7 @@ export default {
 
 <style scoped>
 .shoe-object {
-  width: 384px;
+  width: 376px;
   height: 240px;
 }
 
