@@ -1,5 +1,5 @@
 <template>
-    <div class="button button__normal" @click="handleClick">
+    <div class="button__active button button__normal" @click="handleClick">
       <slot></slot>
     </div>
   </template>
