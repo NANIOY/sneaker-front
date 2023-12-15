@@ -5,12 +5,11 @@
     <div v-else>
       <div v-for="shoe in shoes" :key="shoe._id">
         <ShoeObject
-          :shoe-type="shoe.color"
-          :user-name="shoe.contactInfo"
-          :user-email="shoe.contactInfo"
+          :shoe-type="shoe.shoeType"
+          :user-name="shoe.userName"
+          :user-email="shoe.userEmail"
           :user-id="shoe._id"
           :status="shoe.status"
-          :color="shoe.color"
         />
       </div>
     </div>

@@ -2,6 +2,7 @@
   <div class="shoe-object__block" :style="{ borderColor: color }">
     <div class="shoe-details">
       <h1 class="header header__small">{{ shoeType }}</h1>
+      <p class="text text__normal text__color--black">{{ userName }}</p>
       <p class="text text__normal text__color--black">{{ userEmail }}</p>
       <p class="text text__small text__color--black">{{ userId }}</p>
     </div>
@@ -13,7 +14,7 @@
 
 <script>
 export default {
-  props: ['shoeType', 'userName', 'userEmail', 'userId', 'status', 'color'],
+  props: ['shoeType', 'userName', 'userEmail', 'userId', 'status'],
 };
 </script>
 
