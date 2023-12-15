@@ -1,75 +1,81 @@
 /* font variables */
 :root {
-    --font-unbounded: 'unbounded', sans-serif;
-    --font-space-grotesk: 'space-grotesk', sans-serif;
-  }
-  
-  /* global */
-  body {
-    font-family: var(--font-space-grotesk);
-    font-size: 16px;
-    line-height: 140%;
-  }
-  
-  /* header */
-  h1 {
+  --font-unbounded: 'unbounded', sans-serif;
+  --font-space-grotesk: 'space-grotesk', sans-serif;
+}
+
+/* global styles */
+.body {
+  font-family: var(--font-space-grotesk);
+  font-size: 16px;
+  line-height: 140%;
+}
+
+/* header block */
+h1, h2, h3 {
+  & {
     font-family: var(--font-unbounded);
+  }
+
+  &__1 {
     font-size: 64px;
     font-weight: bold;
   }
-  
-  h2 {
-    font-family: var(--font-unbounded);
+
+  &__2 {
     font-size: 48px;
     font-weight: bold;
   }
-  
-  h3 {
-    font-family: var(--font-space-grotesk);
+
+  &__3 {
     font-size: 24px;
     font-weight: medium;
   }
-  
-  /* body */
-  .body-large {
+}
+
+/* body block */
+.body {
+  &__large {
     font-size: 20px;
     font-weight: regular;
   }
-  
-  .body-normal {
+
+  &__normal {
     font-size: 16px;
     font-weight: regular;
   }
-  
-  .body-small {
+
+  &__small {
     font-size: 12px;
     font-weight: regular;
   }
-  
-  .body-xs {
+
+  &__xs {
     font-size: 8px;
     font-weight: regular;
   }
-  
-  /* button*/
-  .button-large {
+}
+
+/* button block */
+.button {
+  &__large {
     font-size: 20px;
     font-weight: bold;
     text-transform: uppercase;
     line-height: 1;
   }
-  
-  .button-normal {
+
+  &__normal {
     font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
     line-height: 1;
   }
-  
-  .button-small {
+
+  &__small {
     font-size: 12px;
     font-weight: bold;
     text-transform: uppercase;
     line-height: 1;
   }
-  
+}

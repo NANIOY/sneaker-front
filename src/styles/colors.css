@@ -9,33 +9,35 @@
   --black-gradient: linear-gradient(45deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 100%);
 }
 
-/* global */
-body {
+/* global styles */
+.body {
   background-color: var(--white);
   color: var(--black);
 }
 
-/* buttons */
+/* button block */
 .button {
   background-color: var(--green);
   color: var(--white);
 }
 
-/* placeholder */
+/* placeholder block */
 .placeholder {
   color: var(--white-opacity-50);
 }
 
-/* shoe types */
-.shoe-purple {
-  color: var(--purple);
+/* shoe types block */
+.shoe {
+  &__purple {
+    color: var(--purple);
+  }
+
+  &__yellow {
+    color: var(--yellow);
+  }
 }
 
-.shoe-yellow {
-  color: var(--yellow);
-}
-
-/* gradient background */
+/* gradient background block */
 .gradient-background {
   background: var(--black-gradient);
   backdrop-filter: blur(16px);
