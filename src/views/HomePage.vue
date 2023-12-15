@@ -1,9 +1,10 @@
 <template>
   <div>
     <Navbar />
+    <SortingButton :sortOrder="sortOrder" @sort-changed="sortChanged" />
     <div v-if="loading">Loading...</div>
     <div v-else class="shoes-container">
-      <div class="shoe-object" v-for="shoe in shoes" :key="shoe._id">
+      <div class="shoe-object" v-for="shoe in sortedShoes" :key="shoe._id">
         <ShoeObject :shoe-type="shoe.shoeType" :user-name="shoe.userName" :user-email="shoe.userEmail" :user-id="shoe._id"
           :status="shoe.status" />
       </div>
@@ -12,26 +13,38 @@
 </template>
 
 <script>
-import ShoeObject from '../components/ShoeObject.vue';
 import Navbar from '../components/Navbar.vue';
+import SortingButton from '../components/SortingButton.vue';
+import ShoeObject from '../components/ShoeObject.vue';
 
 export default {
   components: {
-    ShoeObject,
     Navbar,
+    SortingButton,
+    ShoeObject
   },
   data() {
     return {
       loading: true,
       shoes: [],
+      sortOrder: 'desc'
     };
   },
-  created() {
-    this.fetchShoes();
+  computed: {
+    sortedShoes() {
+      const sorted = [...this.shoes];
+      return sorted.sort((a, b) => {
+        if (this.sortOrder === 'asc') {
+          return a._id.localeCompare(b._id);
+        } else {
+          return b._id.localeCompare(a._id);
+        }
+      });
+    }
   },
   methods: {
     fetchShoes() {
-      fetch('https://sneaker-back.onrender.com/api/v1/shoes')
+      fetch(`https://sneaker-back.onrender.com/api/v1/shoes?sortorder=${this.sortOrder}`)
         .then(response => {
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -39,7 +52,6 @@ export default {
           return response.json();
         })
         .then(data => {
-          console.log('Fetched data:', data);
           this.shoes = data.data.shoeOrders;
           this.loading = false;
         })
@@ -48,7 +60,14 @@ export default {
           this.loading = false;
         });
     },
+    sortChanged(newSortOrder) {
+      this.sortOrder = newSortOrder;
+      this.fetchShoes();
+    }
   },
+  created() {
+    this.fetchShoes();
+  }
 };
 </script>
 
@@ -57,7 +76,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 0 156px;
+  margin: 76px 156px;
 }
 
 .shoe-object {
