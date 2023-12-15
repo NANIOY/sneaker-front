@@ -5,16 +5,16 @@
 
     <form class="login-panel__block__form text" @submit.prevent="login">
 
-      <label class="text__large input__label" for="username">Username</label>
-      <input class="login-panel__block__input" id="username" type="text" v-model="username" placeholder="Username" />
+      <label class="login-panel__block__label text__large label" for="username">Username</label>
+      <input class="login-panel__block__input input__text input" id="username" type="text" v-model="username" placeholder="Username" />
 
-      <label class="text__large input__label" for="username">Password</label>
-      <input class="login-panel__block__input" id="password" type="password" v-model="password" placeholder="Password" />
+      <label class="login-panel__block__label text__large label" for="username">Password</label>
+      <input class="login-panel__block__input input__text input" id="password" type="password" v-model="password" placeholder="Password" />
 
       <Button class="login-panel__block__button" @click="login">Log in</Button>
 
     </form>
-    
+
   </div>
 </template>
 
@@ -44,21 +44,34 @@ export default {
 
 <style>
 
+.header {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
 .login-panel__block {
   width: fit-content;
   height: fit-content;
   padding: 40px 80px;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .login-panel__block, .login-panel__block__form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: center;
 }
 
 .login-panel__block__button {
-  margin-top: 40px;
-  
+  margin-top: 40px; 
 }
+
+.login-panel__block__label {
+  margin-top: 20px;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
 </style>
