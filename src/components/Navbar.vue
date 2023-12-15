@@ -58,7 +58,9 @@ export default {
 }
 
 .navbar__logo {
-  padding-left: 156px;
+  position: absolute;
+  left: 156px;
+
 }
 
 .navbar__buttons {
