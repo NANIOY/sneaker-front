@@ -5,8 +5,8 @@
         <LogoComponent />
       </div>
       <div class="navbar__buttons">
-        <NavButton label="Orders" :active="isOrdersActive" @toggleActive="toggleActive" />
-        <NavButton label="Profile" :active="isProfileActive" @toggleActive="toggleActive" />
+        <NavButton label="Orders" :active="isOrdersActive" @toggleActive="toggleActive('Orders')"/>
+        <NavButton label="Profile" :active="isProfileActive" @toggleActive="toggleActive('Profile')"  />
       </div>
     </div>
   </div>
@@ -23,18 +23,28 @@ export default {
   },
   data() {
     return {
-      isOrdersActive: true,
-      isProfileActive: false,
+       // Initial states will be set based on the current route
+      isOrdersActive: this.$route.path === '/home',
+      isProfileActive: this.$route.path === '/profile',
     };
+  },
+  watch: {
+    // Watch for changes in the route
+    '$route' (to) {
+      this.isOrdersActive = to.path === '/home';
+      this.isProfileActive = to.path === '/profile';
+    }
   },
   methods: {
     toggleActive(clickedLabel) {
       if (clickedLabel === 'Orders') {
         this.isOrdersActive = true;
         this.isProfileActive = false;
+        this.$router.push('/home'); // Navigate to HomePage
       } else if (clickedLabel === 'Profile') {
         this.isOrdersActive = false;
         this.isProfileActive = true;
+        this.$router.push('/profile'); // Navigate to ProfilePage
       }
     },
   },
