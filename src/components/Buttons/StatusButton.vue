@@ -1,10 +1,10 @@
 <template>
-  <div class="status-button">
-    <button @click="toggleDropdown" :disabled="isRequesting" :class="{ active: isDropdownOpen }">
+  <div class="status-button button button__large">
+    <div @click="toggleDropdown" :disabled="isRequesting" :class="{ active: isDropdownOpen }" class="normal-button body">
       {{ selectedStatus }}
-    </button>
-    <div v-if="isDropdownOpen" @click="handleStatusChange">
-      <div v-for="status in statusOptions" :key="status" class="dropdown-item">
+    </div>
+    <div v-if="isDropdownOpen" @click="handleStatusChange" class="surface__dark">
+      <div v-for="status in statusOptions" :key="status" class="dropdown-item button__normal">
         {{ status }}
       </div>
     </div>
@@ -71,22 +71,25 @@ export default {
 <style scoped>
 .status-button {
   position: relative;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  margin-top: 36px;
+  user-select: none;
+  /* background-color: var(--white); */
 }
 
-button {
+.normal-button {
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+div {
   cursor: pointer;
   width: 100%;
   text-align: left;
 }
 
-button.active {
-  background-color: #e0e0e0;
-}
-
 .dropdown-item {
   cursor: pointer;
+  margin: 16px;
 }
 </style>
