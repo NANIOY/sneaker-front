@@ -66,12 +66,12 @@ export default {
 }
 
 .input-group {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .input-group label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .login-panel__block__input {
