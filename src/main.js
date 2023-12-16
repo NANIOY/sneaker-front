@@ -4,19 +4,26 @@ import App from './App.vue';
 import router from './router';
 import './styles/global.css';
 
-const socket = new WebSocket('wss://sneaker-back.onrender.com/primus');
-
-socket.addEventListener('open', (event) => {
-  console.log('WebSocket connection opened:', event);
-});
-
-socket.addEventListener('message', (event) => {
-  console.log('WebSocket message received:', event);
-  const data = JSON.parse(event.data);
-});
-
 const app = createApp(App);
-app.config.globalProperties.$socket = socket;
+
+// initialize the websocket
+const websocket = new WebSocket('wss://sneaker-back.onrender.com/primus');
+
+websocket.addEventListener('open', () => {
+  console.log('WebSocket connected');
+});
+
+websocket.addEventListener('close', (event) => {
+  console.log('WebSocket closed:', event);
+});
+
+websocket.addEventListener('error', (event) => {
+  console.error('WebSocket error:', event);
+});
+
+// attach the websocket to the app instance
+app.config.globalProperties.$websocket = websocket;
+
+// mount the app
 app.use(router);
 app.mount('#app');
-
