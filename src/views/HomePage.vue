@@ -130,11 +130,12 @@ export default {
 .shoes-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 76px 156px;
+  justify-content: center;
+  margin: 2% 8%;
+  gap: 2.2%;
 }
 
 .shoe-object {
-  margin-bottom: 12px;
+  margin-bottom: 2%;
 }
 </style>
