@@ -13,11 +13,6 @@
         <span class="checkmark"></span>
       </div>
       <div class="input-group">
-        <label for="current-password">Password</label>
-        <input id="current-password" type="password" v-model="passwords.currentPassword" />
-        <span class="checkmark"></span>
-      </div>
-      <div class="input-group">
         <label for="new-password">New Password</label>
         <input id="new-password" type="password" v-model="passwords.newPassword" />
         <span class="checkmark"></span>
