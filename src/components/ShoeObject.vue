@@ -14,7 +14,15 @@
       </div>
     </div>
     <DetailsButton @show-details="showDetails" />
-    <shoe-popup v-if="isDetailsVisible" @close-details="hideDetails" />
+    <ShoePopup
+      v-if="isDetailsVisible"
+      @close-details="hideDetails"
+      :shoeType="shoeType"
+      :userName="userName"
+      :userEmail="userEmail"
+      :userId="userId"
+      :status="status"
+    />
   </div>
 </template>
 

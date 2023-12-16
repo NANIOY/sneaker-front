@@ -1,5 +1,5 @@
 <template>
-  <div class="shoe-popup">
+  <div class="shoe-popup gradient-background">
     <div class="popup-content">
       <h2 class="header">{{ shoeType }} Details</h2>
       <p class="text">User: {{ userName }}</p>
@@ -29,13 +29,13 @@ export default {
 </script>
 
 <style scoped>
+/* Add your styles here */
 .shoe-popup {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 20px;
-  background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   z-index: 1000;
 }
