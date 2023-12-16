@@ -31,12 +31,18 @@
         <p class="text"><span class="text__normal--details">Jewel:</span> {{ jewel }}</p>
         <p class="text"><span class="text__normal--details">Initials:</span> {{ initials }}</p>
       </div>
+
+      <StatusButton @status-changed="handleStatusChange" />
     </div>
   </div>
 </template>
 
 <script>
+import StatusButton from '../components/Buttons/StatusButton.vue';
 export default {
+  components: {
+    StatusButton,
+  },
   props: {
     shoeType: String,
     userName: String,
@@ -57,6 +63,10 @@ export default {
   methods: {
     closeDetails() {
       this.$emit('close-details');
+    },
+     handleStatusChange(newStatus) {
+      // Handle the new status, e.g., update the status in the database
+      console.log('Status changed to:', newStatus);
     },
   },
 };
