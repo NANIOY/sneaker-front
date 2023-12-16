@@ -81,6 +81,7 @@ export default {
   height: 100vh;
   overflow: hidden;
   background-image: url('../assets/images/bg_profile.webp');
+  background-color: var(--black);
 
 }
 </style>
