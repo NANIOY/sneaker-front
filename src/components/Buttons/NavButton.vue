@@ -21,9 +21,8 @@ export default {
 <style scoped>
 div {
     cursor: pointer;
-    max-width: 144px;
-    width: 144px;
-    height: 48px;
+    padding: 12px;
+    border-radius: 90px;
     display: flex;
     align-items: center;
     justify-content: center;
