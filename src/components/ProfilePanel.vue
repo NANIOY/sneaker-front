@@ -1,29 +1,31 @@
 <template>
-  <div class="profile-container">
-    <h1>Profile</h1>
-    <form @submit.prevent="submitProfile">
+  <div class="profile-container__block gradient-background">
+    <h1 class="login-panel__block__title header header__large">Profile</h1>
+    <form class="text" @submit.prevent="submitProfile">
       <div class="input-group">
-        <label for="username">Username</label>
-        <input id="username" type="text" v-model="user.username" />
-        <span class="checkmark"></span>
+        <label class="login-panel__block__label text__large label" for="username">Username</label>
+        <input class="login-panel__block__input input__text input" id="username" type="text" v-model="user.username" placeholder="Username"/>
       </div>
       <div class="input-group">
-        <label for="email">Email</label>
-        <input id="email" type="email" v-model="user.email" />
-        <span class="checkmark"></span>
+        <label class="login-panel__block__label text__large label" for="email">Email</label>
+        <input class="login-panel__block__input input__text input" id="email" type="email" v-model="user.email" placeholder="Email"/>
       </div>
       <div class="input-group">
-        <label for="new-password">New Password</label>
-        <input id="new-password" type="password" v-model="passwords.newPassword" />
-        <span class="checkmark"></span>
+        <label class="login-panel__block__label text__large label" for="new-password">New Password</label>
+        <input class="login-panel__block__input input__text input" id="new-password" type="password" v-model="passwords.newPassword" placeholder="New password"/>
       </div>
-      <button type="submit">Update Profile</button>
+      <Button class="login-panel__block__button" @click="submitProfile">Update Profile</Button>
     </form>
   </div>
 </template>
 
 <script>
+import Button from '../components/Buttons/AuthButton.vue';
+
 export default {
+  components: {
+    Button
+  },
   data() {
     return {
       user: {
@@ -53,6 +55,13 @@ export default {
 </script>
 
 <style scoped>
+.profile-container__block {
+  width: fit-content;
+  height: fit-content;
+  padding: 40px 80px;
+  margin: auto;
+}
+
 .input-group {
   margin-bottom: 15px;
 }
@@ -62,29 +71,6 @@ export default {
   margin-bottom: 5px;
 }
 
-.input-group input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.input-group .checkmark {
-  /* Style for checkmark or any indicator for the input */
-}
-
-button {
-  padding: 10px 15px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
-}
 
 /* Add more styles as per your design requirements */
 </style>
