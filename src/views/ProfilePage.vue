@@ -1,8 +1,6 @@
 <template>
   <div class="profile-page__block">
     <navbar-component></navbar-component>
-    <logo-component></logo-component>
-    <login-panel></login-panel>
     <profile-panel @update-profile="handleUpdateProfile"></profile-panel>
   </div>
 </template>
