@@ -40,7 +40,6 @@
 .button__active {
   background-color: var(--green);
   color: var(--black);
-  border-radius: 90px;
 }
 
 .button__default {
