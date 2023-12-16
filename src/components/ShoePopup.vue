@@ -1,32 +1,36 @@
 <template>
   <div class="shoe-popup gradient-background">
     <div class="popup-content text__color--white">
-      <h2 class="header">{{ shoeType }} Details</h2>
+      <h1 class="header header__medium">{{ shoeType }}</h1>
       <div class="user">
-        <!-- user--contact class -->
         <div class="user--contact text__large">
           <p class="text">{{ userName }}</p>
           <div class="dot text__color--white"></div>
           <p class="text">{{ userEmail }}</p>
         </div>
-        <!-- user--extra class -->
         <div class="user--extra text__small">
           <p class="text">{{ userAddress }}</p>
           <div class="dot text__color--white"></div>
           <p class="text">{{ userId }}</p>
         </div>
       </div>
-      <!-- Add the new fields -->
-      <p class="text">Shoe Size: {{ shoeSize }}</p>
-      <p class="text">Sole Color: {{ shoeColorSole }}</p>
-      <p class="text">Laces Color: {{ shoeColorLaces }}</p>
-      <p class="text">Panel Down Color: {{ shoeColorPanelDown }}</p>
-      <p class="text">Panel Up Color: {{ shoeColorPanelUp }}</p>
-      <p class="text">Material Panel Down: {{ shoeMaterialPanelDown }}</p>
-      <p class="text">Material Panel Up: {{ shoeMaterialPanelUp }}</p>
-      <p class="text">Jewel: {{ jewel }}</p>
-      <p class="text">Initials: {{ initials }}</p>
-      <!-- End of new fields -->
+
+      <h2 class="header header__small">Details</h2>
+      <div class="line"></div>
+
+      <div class="details-section text__normal">
+        <p class="text"><span class="text__normal--details">Shoe Size:</span> {{ shoeSize }}</p>
+        <p class="text"><span class="text__normal--details">Sole Color:</span> {{ shoeColorSole }}</p>
+        <p class="text"><span class="text__normal--details">Laces Color:</span> {{ shoeColorLaces }}</p>
+        <p class="text"><span class="text__normal--details">Panel Down Color:</span> {{ shoeColorPanelDown }}</p>
+        <p class="text"><span class="text__normal--details">Panel Up Color:</span> {{ shoeColorPanelUp }}</p>
+        <p class="text"><span class="text__normal--details">Material Panel Down:</span> {{ shoeMaterialPanelDown }}</p>
+        <p class="text"><span class="text__normal--details">Material Panel Up:</span> {{ shoeMaterialPanelUp }}</p>
+        <p class="text"><span class="text__normal--details">Jewel:</span> {{ jewel }}</p>
+        <p class="text"><span class="text__normal--details">Initials:</span> {{ initials }}</p>
+      </div>
+
+
       <button @click="closeDetails" class="close-button">Close</button>
     </div>
   </div>
@@ -60,7 +64,6 @@ export default {
 </script>
 
 <style scoped>
-/* Add your styles here */
 .shoe-popup {
   width: 600px;
   position: fixed;
@@ -80,7 +83,7 @@ export default {
 }
 
 .text {
-  margin: 5px 0;
+  margin: 8px 0;
 }
 
 .user {
@@ -101,6 +104,33 @@ export default {
   background-color: var(--white);
   border-radius: 50%;
   margin: 0 8px;
+}
+
+.header__small {
+  margin-top: 24px;
+}
+
+.line {
+  height: 1px;
+  background-color: var(--white);
+  margin-top: -8px;
+}
+
+.details-section {
+  margin-top: 12px;
+}
+
+.close-button {
+  margin-top: 15px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #0056b3;
 }
 
 
