@@ -2,20 +2,31 @@
   <div class="shoe-popup gradient-background">
     <div class="popup-content text__color--white">
       <h2 class="header">{{ shoeType }} Details</h2>
-      <p class="text">User: {{ userName }}</p>
-      <p class="text">Email: {{ userEmail }}</p>
-      <p class="text">User ID: {{ userId }}</p>
-      <p class="text">Status: {{ status }}</p>
+      <div class="user">
+        <!-- user--contact class -->
+        <div class="user--contact text__large">
+          <p class="text">{{ userName }}</p>
+          <div class="dot text__color--white"></div>
+          <p class="text">{{ userEmail }}</p>
+        </div>
+        <!-- user--extra class -->
+        <div class="user--extra text__small">
+          <p class="text">{{ userAddress }}</p>
+          <div class="dot text__color--white"></div>
+          <p class="text">{{ userId }}</p>
+        </div>
+      </div>
+      <!-- Add the new fields -->
       <p class="text">Shoe Size: {{ shoeSize }}</p>
-      <p class="text">Shoe Color (Sole): {{ shoeColorSole }}</p>
-      <p class="text">Shoe Color (Laces): {{ shoeColorLaces }}</p>
-      <p class="text">Shoe Color (Panel Down): {{ shoeColorPanelDown }}</p>
-      <p class="text">Shoe Color (Panel Up): {{ shoeColorPanelUp }}</p>
-      <p class="text">Shoe Material (Panel Down): {{ shoeMaterialPanelDown }}</p>
-      <p class="text">Shoe Material (Panel Up): {{ shoeMaterialPanelUp }}</p>
+      <p class="text">Sole Color: {{ shoeColorSole }}</p>
+      <p class="text">Laces Color: {{ shoeColorLaces }}</p>
+      <p class="text">Panel Down Color: {{ shoeColorPanelDown }}</p>
+      <p class="text">Panel Up Color: {{ shoeColorPanelUp }}</p>
+      <p class="text">Material Panel Down: {{ shoeMaterialPanelDown }}</p>
+      <p class="text">Material Panel Up: {{ shoeMaterialPanelUp }}</p>
       <p class="text">Jewel: {{ jewel }}</p>
       <p class="text">Initials: {{ initials }}</p>
-      <p class="text">User Address: {{ userAddress }}</p>
+      <!-- End of new fields -->
       <button @click="closeDetails" class="close-button">Close</button>
     </div>
   </div>
@@ -51,17 +62,17 @@ export default {
 <style scoped>
 /* Add your styles here */
 .shoe-popup {
+  width: 600px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   z-index: 1000;
 }
 
 .popup-content {
   text-align: left;
+  padding: 36px 48px;
 }
 
 .header {
@@ -71,6 +82,27 @@ export default {
 .text {
   margin: 5px 0;
 }
+
+.user {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.user--contact,
+.user--extra {
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  background-color: var(--white);
+  border-radius: 50%;
+  margin: 0 8px;
+}
+
 
 .close-button {
   margin-top: 15px;
