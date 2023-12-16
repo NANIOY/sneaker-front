@@ -59,7 +59,10 @@ export default {
   width: fit-content;
   height: fit-content;
   padding: 40px 80px;
-  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .input-group {
@@ -71,6 +74,8 @@ export default {
   margin-bottom: 5px;
 }
 
-
+.login-panel__block__input {
+  border-width: 0px 0px 1px 0px !important;
+}
 /* Add more styles as per your design requirements */
 </style>
