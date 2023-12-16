@@ -1,6 +1,8 @@
 <template>
   <div class="shoe-popup gradient-background">
     <div class="popup-content text__color--white">
+      <button @click="closeDetails" class="close-button"></button>
+
       <h1 class="header header__medium">{{ shoeType }}</h1>
       <div class="user">
         <div class="user--contact text__large">
@@ -29,9 +31,6 @@
         <p class="text"><span class="text__normal--details">Jewel:</span> {{ jewel }}</p>
         <p class="text"><span class="text__normal--details">Initials:</span> {{ initials }}</p>
       </div>
-
-
-      <button @click="closeDetails" class="close-button">Close</button>
     </div>
   </div>
 </template>
@@ -78,8 +77,9 @@ export default {
   padding: 36px 48px;
 }
 
-.header {
+.header__medium {
   margin-bottom: 12px;
+  font-size: 36px;
 }
 
 .text {
@@ -113,7 +113,7 @@ export default {
 .line {
   height: 1px;
   background-color: var(--white);
-  margin-top: -8px;
+  margin-top: -16px;
 }
 
 .details-section {
@@ -121,29 +121,36 @@ export default {
 }
 
 .close-button {
-  margin-top: 15px;
-  padding: 8px 16px;
-  background-color: #007bff;
-  color: white;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
   border: none;
   cursor: pointer;
+  margin-right: 16px;
 }
 
-.close-button:hover {
-  background-color: #0056b3;
+.close-button::before,
+.close-button::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 24px;
+  background-color: var(--white);
 }
 
-
-.close-button {
-  margin-top: 15px;
-  padding: 8px 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
+.close-button::before {
+  transform: rotate(45deg);
 }
 
-.close-button:hover {
-  background-color: #0056b3;
+.close-button::after {
+  transform: rotate(-45deg);
+}
+
+.close-button:hover::before,
+.close-button:hover::after {
+  background-color: #ccc;
 }
 </style>
