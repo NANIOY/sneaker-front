@@ -16,7 +16,7 @@ export default {
       isDropdownOpen: false,
       selectedStatus: 'Select Status',
       statusOptions: ['Order Placed', 'In Production', 'Shipped', 'Delivered', 'Cancelled'],
-      isRequesting: false, // flag to track onoing requests
+      isRequesting: false, // flag to track ongoing requests
     };
   },
   methods: {
@@ -54,7 +54,7 @@ export default {
       } catch (error) {
         console.error('Error updating status:', error);
       } finally {
-        // reset isRequesting enable the button
+        // reset isRequesting to enable the button
         this.isRequesting = false;
       }
     },

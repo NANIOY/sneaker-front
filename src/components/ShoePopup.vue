@@ -64,43 +64,6 @@ export default {
     closeDetails() {
       this.$emit('close-details');
     },
-    async handleStatusChange(event) {
-      // Ensure event.target is defined
-      if (event && event.target) {
-        const selectedOption = event.target.textContent;
-        this.selectedStatus = selectedOption;
-        this.isDropdownOpen = false;
-
-        // Emit an event to notify the parent component about the status change
-        this.$emit('status-changed', selectedOption);
-
-        // Make a PATCH request to update the status in the database
-        try {
-          const BASE_URL = 'https://sneaker-back.onrender.com/api/v1';
-
-          const response = await fetch(`${BASE_URL}/shoes/${this.userId}`, {
-            method: 'PATCH',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ status: selectedOption }),
-          });
-
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-
-          const data = await response.json();
-          console.log('Server response:', data);
-        } catch (error) {
-          console.error('Error updating status:', error);
-          // Handle error as needed
-        }
-      } else {
-        console.error('Event or event.target is undefined');
-        // Handle the case where event or event.target is undefined
-      }
-    },
   },
 };
 </script>
