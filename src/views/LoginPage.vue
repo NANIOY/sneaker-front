@@ -16,14 +16,19 @@ export default {
   },
   methods: {
     handleLogin(credentials) {
-      fetch('https://sneaker-back.onrender.com/api/v1/users', {
+      fetch('https://sneaker-back.onrender.com/api/v1/auth/login', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(credentials)
       })
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`${response.status} ${response.statusText}`);
+        }
+        return response.json(); 
+      })
       .then(data => {
         console.log('Login Successful:', data);
         // Handle login success, e.g., storing the auth token and redirecting
