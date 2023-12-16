@@ -1,11 +1,21 @@
 <template>
   <div class="shoe-popup gradient-background">
-    <div class="popup-content">
+    <div class="popup-content text__color--white">
       <h2 class="header">{{ shoeType }} Details</h2>
       <p class="text">User: {{ userName }}</p>
       <p class="text">Email: {{ userEmail }}</p>
       <p class="text">User ID: {{ userId }}</p>
       <p class="text">Status: {{ status }}</p>
+      <p class="text">Shoe Size: {{ shoeSize }}</p>
+      <p class="text">Shoe Color (Sole): {{ shoeColorSole }}</p>
+      <p class="text">Shoe Color (Laces): {{ shoeColorLaces }}</p>
+      <p class="text">Shoe Color (Panel Down): {{ shoeColorPanelDown }}</p>
+      <p class="text">Shoe Color (Panel Up): {{ shoeColorPanelUp }}</p>
+      <p class="text">Shoe Material (Panel Down): {{ shoeMaterialPanelDown }}</p>
+      <p class="text">Shoe Material (Panel Up): {{ shoeMaterialPanelUp }}</p>
+      <p class="text">Jewel: {{ jewel }}</p>
+      <p class="text">Initials: {{ initials }}</p>
+      <p class="text">User Address: {{ userAddress }}</p>
       <button @click="closeDetails" class="close-button">Close</button>
     </div>
   </div>
@@ -19,6 +29,16 @@ export default {
     userEmail: String,
     userId: String,
     status: String,
+    shoeSize: String,
+    shoeColorSole: String,
+    shoeColorLaces: String,
+    shoeColorPanelDown: String,
+    shoeColorPanelUp: String,
+    shoeMaterialPanelDown: String,
+    shoeMaterialPanelUp: String,
+    jewel: String,
+    initials: String,
+    userAddress: String,
   },
   methods: {
     closeDetails() {
@@ -45,8 +65,7 @@ export default {
 }
 
 .header {
-  color: var(--black);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .text {

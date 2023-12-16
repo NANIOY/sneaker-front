@@ -6,7 +6,11 @@
     <div v-else class="shoes-container">
       <div class="shoe-object" v-for="shoe in sortedShoes" :key="shoe._id">
         <ShoeObject :shoe-type="shoe.shoeType" :user-name="shoe.userName" :user-email="shoe.userEmail" :user-id="shoe._id"
-          :status="shoe.status" />
+          :status="shoe.status" :shoe-size="shoe.shoeSize" :shoe-color-sole="shoe.shoeColorSole"
+          :shoe-color-laces="shoe.shoeColorLaces" :shoe-color-panel-down="shoe.shoeColorPanelDown"
+          :shoe-color-panel-up="shoe.shoeColorPanelUp" :shoe-material-panel-down="shoe.shoeMaterialPanelDown"
+          :shoe-material-panel-up="shoe.shoeMaterialPanelUp" :jewel="shoe.jewel" :initials="shoe.initials"
+          :user-address="shoe.userAddress" />
       </div>
     </div>
   </div>

@@ -22,6 +22,16 @@
       :userEmail="userEmail"
       :userId="userId"
       :status="status"
+      :shoeSize="shoeSize"
+      :shoeColorSole="shoeColorSole"
+      :shoeColorLaces="shoeColorLaces"
+      :shoeColorPanelDown="shoeColorPanelDown"
+      :shoeColorPanelUp="shoeColorPanelUp"
+      :shoeMaterialPanelDown="shoeMaterialPanelDown"
+      :shoeMaterialPanelUp="shoeMaterialPanelUp"
+      :jewel="jewel"
+      :initials="initials"
+      :userAddress="userAddress"
     />
   </div>
 </template>
@@ -35,7 +45,23 @@ export default {
     DetailsButton,
     ShoePopup,
   },
-  props: ['shoeType', 'userName', 'userEmail', 'userId', 'status'],
+  props: [
+    'shoeType',
+    'userName',
+    'userEmail',
+    'userId',
+    'status',
+    'shoeSize',
+    'shoeColorSole',
+    'shoeColorLaces',
+    'shoeColorPanelDown',
+    'shoeColorPanelUp',
+    'shoeMaterialPanelDown',
+    'shoeMaterialPanelUp',
+    'jewel',
+    'initials',
+    'userAddress',
+  ],
   data() {
     return {
       isDetailsVisible: false,
