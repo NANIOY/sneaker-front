@@ -48,6 +48,11 @@
   font-size: 16px;
 }
 
+.text__normal--details {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 .text__small {
   font-size: 12px;
 }
