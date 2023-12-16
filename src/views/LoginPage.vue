@@ -31,12 +31,12 @@ export default {
         return response.json(); 
       })
       .then(data => {
-        console.log('Login Successful:', data);
-        // Store authentication data (like tokens) here if needed
-
-        // Redirect to HomePage
-        router.push('/home');
-      })
+          console.log('Login Successful:', data);
+          // Store the authentication state
+          localStorage.setItem('isLoggedIn', 'true');
+          // Redirect to HomePage
+          router.push('/home');
+        })
       .catch(error => {
         console.error('Login Error:', error);
         // Handle login error, e.g., displaying a message to the user
