@@ -29,6 +29,10 @@ div {
     justify-content: center;
 }
 
+.button__active {
+    border-radius: 90px;
+}
+
 @media (max-width: 144px) {
     div {
         max-width: 100%;
