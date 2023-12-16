@@ -8,6 +8,7 @@
 <script>
 import LoginPanel from '../components/LoginPanel.vue';
 import LogoComponent from '../components/LogoComponent.vue';
+import router from '../router'; // Import router
 
 export default {
   components: {
@@ -16,7 +17,7 @@ export default {
   },
   methods: {
     handleLogin(credentials) {
-      fetch('https://sneaker-back.onrender.com/api/v1/auth/login', { 
+      fetch('https://sneaker-back.onrender.com/api/v1/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -31,7 +32,10 @@ export default {
       })
       .then(data => {
         console.log('Login Successful:', data);
-        // Handle login success, e.g., storing the auth token and redirecting
+        // Store authentication data (like tokens) here if needed
+
+        // Redirect to HomePage
+        router.push('/home');
       })
       .catch(error => {
         console.error('Login Error:', error);
