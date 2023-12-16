@@ -13,18 +13,34 @@
         <span class="text text__small text__color--white">{{ status }}</span>
       </div>
     </div>
-    <DetailsButton />
+    <DetailsButton @show-details="showDetails" />
+    <shoe-popup v-if="isDetailsVisible" @close-details="hideDetails" />
   </div>
 </template>
 
 <script>
 import DetailsButton from '../components/Buttons/DetailsButtons.vue';
+import ShoePopup from '../components/ShoePopup.vue';
 
 export default {
   components: {
     DetailsButton,
+    ShoePopup,
   },
   props: ['shoeType', 'userName', 'userEmail', 'userId', 'status'],
+  data() {
+    return {
+      isDetailsVisible: false,
+    };
+  },
+  methods: {
+    showDetails() {
+      this.isDetailsVisible = true;
+    },
+    hideDetails() {
+      this.isDetailsVisible = false;
+    },
+  },
 };
 </script>
 
