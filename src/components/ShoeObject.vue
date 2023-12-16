@@ -7,7 +7,6 @@
           <p class="text text__normal text__color--black">{{ userName }}</p>
           <p class="text text__normal text__color--black">{{ userEmail }}</p>
         </div>
-        <p class="text text--userid text__small text__color--black">{{ userId }}</p>
       </div>
       <div class="shoe-status surface__dark">
         <span class="text text__small text__color--white">{{ status }}</span>
@@ -22,6 +21,16 @@
       :userEmail="userEmail"
       :userId="userId"
       :status="status"
+      :shoeSize="shoeSize"
+      :shoeColorSole="shoeColorSole"
+      :shoeColorLaces="shoeColorLaces"
+      :shoeColorPanelDown="shoeColorPanelDown"
+      :shoeColorPanelUp="shoeColorPanelUp"
+      :shoeMaterialPanelDown="shoeMaterialPanelDown"
+      :shoeMaterialPanelUp="shoeMaterialPanelUp"
+      :jewel="jewel"
+      :initials="initials"
+      :userAddress="userAddress"
     />
   </div>
 </template>
@@ -35,7 +44,23 @@ export default {
     DetailsButton,
     ShoePopup,
   },
-  props: ['shoeType', 'userName', 'userEmail', 'userId', 'status'],
+  props: [
+    'shoeType',
+    'userName',
+    'userEmail',
+    'userId',
+    'status',
+    'shoeSize',
+    'shoeColorSole',
+    'shoeColorLaces',
+    'shoeColorPanelDown',
+    'shoeColorPanelUp',
+    'shoeMaterialPanelDown',
+    'shoeMaterialPanelUp',
+    'jewel',
+    'initials',
+    'userAddress',
+  ],
   data() {
     return {
       isDetailsVisible: false,
