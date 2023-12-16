@@ -1,3 +1,64 @@
+<script setup>
+import Navbar from '../components/Navbar.vue';
+import SortingButton from '../components/SortingButton.vue';
+import ShoeObject from '../components/ShoeObject.vue';
+import { ref, onMounted, computed } from 'vue';
+import { useRouter } from 'vue-router';
+
+const route = useRouter();
+
+const loading = ref(true);
+const shoes = ref([]);
+const sortOrder = ref('desc');
+
+const fetchShoes = async () => {
+  try {
+    const response = await fetch(`https://sneaker-back.onrender.com/api/v1/shoes?sortorder=${sortOrder.value}`);
+    const result = await response.json();
+
+    if (response.ok) {
+      shoes.value = result.data.shoeOrders;
+      loading.value = false;
+    } else {
+      console.error(result.message);
+      route.push('/');
+    }
+  } catch (error) {
+    console.error('Error fetching shoes:', error);
+  }
+};
+
+const sortChanged = (newSortOrder) => {
+  sortOrder.value = newSortOrder;
+  fetchShoes();
+};
+
+const sortedShoes = computed(() => {
+  const sorted = [...shoes.value];
+  return sorted.sort((a, b) => {
+    if (sortOrder.value === 'asc') {
+      return a._id.localeCompare(b._id);
+    } else {
+      return b._id.localeCompare(a._id);
+    }
+  });
+});
+
+onMounted(() => {
+  fetchShoes();
+
+  const socket = new WebSocket('wss://sneaker-back.onrender.com/primus');
+
+  // listen for new data
+  socket.onmessage = function (event) {
+    const order = JSON.parse(event.data);
+    if (order.type === 'new_order') {
+      shoes.push(order.data);
+    }
+  };
+});
+</script>
+
 <template>
   <div>
     <Navbar />
@@ -11,65 +72,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import Navbar from '../components/Navbar.vue';
-import SortingButton from '../components/SortingButton.vue';
-import ShoeObject from '../components/ShoeObject.vue';
-
-export default {
-  components: {
-    Navbar,
-    SortingButton,
-    ShoeObject
-  },
-  data() {
-    return {
-      loading: true,
-      shoes: [],
-      sortOrder: 'desc'
-    };
-  },
-  computed: {
-    sortedShoes() {
-      const sorted = [...this.shoes];
-      return sorted.sort((a, b) => {
-        if (this.sortOrder === 'asc') {
-          return a._id.localeCompare(b._id);
-        } else {
-          return b._id.localeCompare(a._id);
-        }
-      });
-    }
-  },
-  methods: {
-    fetchShoes() {
-      fetch(`https://sneaker-back.onrender.com/api/v1/shoes?sortorder=${this.sortOrder}`)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then(data => {
-          this.shoes = data.data.shoeOrders;
-          this.loading = false;
-        })
-        .catch(error => {
-          console.error('There was a problem with the fetch operation:', error);
-          this.loading = false;
-        });
-    },
-    sortChanged(newSortOrder) {
-      this.sortOrder = newSortOrder;
-      this.fetchShoes();
-    }
-  },
-  created() {
-    this.fetchShoes();
-  }
-};
-</script>
 
 <style scoped>
 .shoes-container {
