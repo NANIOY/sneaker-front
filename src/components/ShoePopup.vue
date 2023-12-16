@@ -32,7 +32,7 @@
         <p class="text"><span class="text__normal--details">Initials:</span> {{ initials }}</p>
       </div>
 
-      <StatusButton @status-changed="handleStatusChange" :userId="userId" />
+      <StatusButton @status-changed="handleStatusChange" :userId="userId" :initialStatus="status" />
     </div>
   </div>
 </template>
@@ -63,6 +63,9 @@ export default {
   methods: {
     closeDetails() {
       this.$emit('close-details');
+    },
+    handleStatusChange(selectedOption) {
+      console.log('Selected status in ShoePopup:', selectedOption);
     },
   },
 };

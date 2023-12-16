@@ -1,6 +1,8 @@
 <template>
   <div class="status-button">
-    <button @click="toggleDropdown" :disabled="isRequesting">{{ selectedStatus }}</button>
+    <button @click="toggleDropdown" :disabled="isRequesting" :class="{ active: isDropdownOpen }">
+      {{ selectedStatus }}
+    </button>
     <div v-if="isDropdownOpen" @click="handleStatusChange">
       <div v-for="status in statusOptions" :key="status" class="dropdown-item">
         {{ status }}
@@ -14,7 +16,7 @@ export default {
   data() {
     return {
       isDropdownOpen: false,
-      selectedStatus: 'Select Status',
+      selectedStatus: this.initialStatus, // initialize with the current status
       statusOptions: ['Order Placed', 'In Production', 'Shipped', 'Delivered', 'Cancelled'],
       isRequesting: false, // flag to track ongoing requests
     };
@@ -61,6 +63,7 @@ export default {
   },
   props: {
     userId: String,
+    initialStatus: String, // pass the current status as a prop
   },
 };
 </script>
@@ -68,11 +71,19 @@ export default {
 <style scoped>
 .status-button {
   position: relative;
-  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 button {
   cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+button.active {
+  background-color: #e0e0e0;
 }
 
 .dropdown-item {
