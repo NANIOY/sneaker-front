@@ -38,6 +38,7 @@ export default {
     },
   },
   methods: {
+    // fetches shoes from the server
     fetchShoes() {
       fetch(`https://sneaker-back.onrender.com/api/v1/shoes?sortorder=${this.sortOrder}`)
         .then(response => {
@@ -48,6 +49,7 @@ export default {
         })
         .then(data => {
           if (data && data.data && data.data.shoeOrders) {
+            // update shoes data and set loading to false
             this.shoes = data.data.shoeOrders;
             this.loading = false;
           } else {
@@ -59,13 +61,18 @@ export default {
           this.loading = false;
         });
     },
+
+    // handle sort change event from SortingButton
     sortChanged(newSortOrder) {
       this.sortOrder = newSortOrder;
       this.fetchShoes();
     },
+
+    // initialize WebSocket connection
     initializeWebSocket() {
       this.websocket = new WebSocket('wss://sneaker-back.onrender.com/primus');
 
+      // event listeners for WebSocket events
       this.websocket.addEventListener('open', () => {
         console.log('Connected to WebSocket');
       });
@@ -88,24 +95,29 @@ export default {
       });
     },
 
+    // handle WebSocket message
     handleWebSocketMessage(data) {
       if (data && data.status === 'success' && data.message === 'Shoe order created successfully' && data.data && data.data.shoeOrder) {
         const newShoeOrder = data.data.shoeOrder;
 
-        // Log the new shoe order details
+        // log the new shoe order
         console.log('New Shoe Order Created:', newShoeOrder);
 
-        // Add the new shoe order to the component's data
+        // add the new shoe order to the beginning of the shoes array
         this.shoes.unshift(newShoeOrder);
       } else {
         console.log('Unhandled WebSocket message:', data);
       }
     },
   },
+
+  // fetch shoes and initialize WebSocket connection on component creation
   created() {
     this.initializeWebSocket();
     this.fetchShoes();
   },
+
+  // close WebSocket connection before component is destroyed
   beforeDestroy() {
     if (this.websocket) {
       this.websocket.close();
@@ -118,11 +130,12 @@ export default {
 .shoes-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 76px 156px;
+  justify-content: center;
+  margin: 2% 8%;
+  gap: 2.2%;
 }
 
 .shoe-object {
-  margin-bottom: 12px;
+  margin-bottom: 2%;
 }
 </style>
