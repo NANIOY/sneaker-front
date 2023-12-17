@@ -98,6 +98,12 @@ export default {
   position: relative;
 }
 
+@media (max-width: 416px) {
+  .shoe-object {
+    width: 80vw;
+  }
+}
+
 .shoe-object__details {
   padding: 0 0 12px 12px;
 }
