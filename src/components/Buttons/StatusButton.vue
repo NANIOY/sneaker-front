@@ -80,12 +80,14 @@ export default {
   height: 48px;
   display: flex;
   align-items: center;
+  padding-left: 4px;
 }
 
 div {
   cursor: pointer;
   width: 100%;
   text-align: left;
+  padding: 4px;
 }
 
 .dropdown-item {
