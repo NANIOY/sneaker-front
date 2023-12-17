@@ -60,6 +60,7 @@ export default {
     'jewel',
     'initials',
     'userAddress',
+    'isPopupOpen',
   ],
   data() {
     return {
@@ -67,13 +68,17 @@ export default {
     };
   },
   methods: {
-    showDetails() {
+  showDetails() {
+    if (!this.isPopupOpen) {
       this.isDetailsVisible = true;
-    },
-    hideDetails() {
-      this.isDetailsVisible = false;
-    },
+      this.$emit('popup-toggled', true); // Notify that the popup is open
+    }
   },
+  hideDetails() {
+    this.isDetailsVisible = false;
+    this.$emit('popup-toggled', false); // Notify that the popup is closed
+  },
+},
 };
 </script>
 

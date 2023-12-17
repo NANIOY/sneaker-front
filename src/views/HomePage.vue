@@ -5,7 +5,8 @@
     <div v-if="loading">Loading...</div>
     <div v-else class="shoes-container">
       <div class="shoe-object" v-for="shoe in sortedShoes" :key="shoe._id">
-        <ShoeObject :shoe-type="shoe.shoeType" :user-name="shoe.userName" :user-email="shoe.userEmail" :user-id="shoe._id"
+        <ShoeObject :shoe-type="shoe.shoeType" :isPopupOpen="isPopupOpen"
+  @popup-toggled="togglePopup" :user-name="shoe.userName" :user-email="shoe.userEmail" :user-id="shoe._id"
           :status="shoe.status" :shoe-size="shoe.shoeSize" :shoe-color-sole="shoe.shoeColorSole"
           :shoe-color-laces="shoe.shoeColorLaces" :shoe-color-panel-down="shoe.shoeColorPanelDown"
           :shoe-color-panel-up="shoe.shoeColorPanelUp" :shoe-material-panel-down="shoe.shoeMaterialPanelDown"
@@ -33,6 +34,7 @@ export default {
       shoes: [],
       sortOrder: 'desc',
       websocket: null,
+      isPopupOpen: false,
     };
   },
   computed: {
@@ -65,6 +67,10 @@ export default {
           this.loading = false;
         });
     },
+
+    togglePopup(isOpen) {
+    this.isPopupOpen = isOpen;
+  },
 
     // handle sort change event from SortingButton
     sortChanged(newSortOrder) {
