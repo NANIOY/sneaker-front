@@ -34,7 +34,7 @@ export default {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': `Bearer ${authToken}`, // Include the authentication token
+              'Authorization': ` ${authToken}`, // Include the authentication token
             },
             body: JSON.stringify({
               currentPassword: passwords.currentPassword,
@@ -58,7 +58,7 @@ export default {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${authToken}`, // Include the authentication token
+            'Authorization': ` ${authToken}`, // Include the authentication token
           },
           body: JSON.stringify({ username, email })
         });
@@ -69,7 +69,7 @@ export default {
           url: 'https://sneaker-back.onrender.com/api/v1/users/info',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${authToken}`,
+            'Authorization': ` ${authToken}`,
           },
           body: JSON.stringify({ username, email })
         });
