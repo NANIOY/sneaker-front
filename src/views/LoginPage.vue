@@ -16,33 +16,38 @@ export default {
     LogoComponent
   },
   methods: {
-    handleLogin(credentials) {
-      fetch('https://sneaker-back.onrender.com/api/v1/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(credentials)
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`${response.status} ${response.statusText}`);
-        }
-        return response.json(); 
-      })
-      .then(data => {
-          console.log('Login Successful:', data);
-          // Store the authentication state
-          localStorage.setItem('isLoggedIn', 'true');
-          // Redirect to HomePage
-          router.push('/home');
-        })
-      .catch(error => {
-        console.error('Login Error:', error);
-        // Handle login error, e.g., displaying a message to the user
-      });
-    }
+  handleLogin(credentials) {
+    fetch('https://sneaker-back.onrender.com/api/v1/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(credentials)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}`);
+      }
+      return response.json(); 
+    })
+    .then(data => {
+  console.log('Login Successful:', data);
+
+  // Store the authentication state and token
+  localStorage.setItem('isLoggedIn', 'true');
+  localStorage.setItem('authToken', data.token); // Assuming the token is in the 'token' property of the response data
+  console.log('Stored Token:', data.token); // Log the stored token
+
+  // Redirect to HomePage
+  router.push('/home');
+})
+    .catch(error => {
+      console.error('Login Error:', error);
+      // Handle login error, e.g., displaying a message to the user
+    });
   }
+}
+
 };
 </script>
 
