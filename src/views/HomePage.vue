@@ -5,13 +5,12 @@
     <div v-if="loading">Loading...</div>
     <div v-else class="shoes-container">
       <div class="shoe-object" v-for="shoe in sortedShoes" :key="shoe._id">
-        <ShoeObject :shoe-type="shoe.shoeType" :isPopupOpen="isPopupOpen"
-  @popup-toggled="togglePopup" :user-name="shoe.userName" :user-email="shoe.userEmail" :user-id="shoe._id"
-          :status="shoe.status" :shoe-size="shoe.shoeSize" :shoe-color-sole="shoe.shoeColorSole"
-          :shoe-color-laces="shoe.shoeColorLaces" :shoe-color-panel-down="shoe.shoeColorPanelDown"
-          :shoe-color-panel-up="shoe.shoeColorPanelUp" :shoe-material-panel-down="shoe.shoeMaterialPanelDown"
-          :shoe-material-panel-up="shoe.shoeMaterialPanelUp" :jewel="shoe.jewel" :initials="shoe.initials"
-          :user-address="shoe.userAddress" />
+        <ShoeObject :shoe-type="shoe.shoeType" :isPopupOpen="isPopupOpen" @popup-toggled="togglePopup"
+          :user-name="shoe.userName" :user-email="shoe.userEmail" :user-id="shoe._id" :status="shoe.status"
+          :shoe-size="shoe.shoeSize" :shoe-color-sole="shoe.shoeColorSole" :shoe-color-laces="shoe.shoeColorLaces"
+          :shoe-color-panel-down="shoe.shoeColorPanelDown" :shoe-color-panel-up="shoe.shoeColorPanelUp"
+          :shoe-material-panel-down="shoe.shoeMaterialPanelDown" :shoe-material-panel-up="shoe.shoeMaterialPanelUp"
+          :jewel="shoe.jewel" :initials="shoe.initials" :user-address="shoe.userAddress" />
       </div>
     </div>
   </div>
@@ -69,8 +68,8 @@ export default {
     },
 
     togglePopup(isOpen) {
-    this.isPopupOpen = isOpen;
-  },
+      this.isPopupOpen = isOpen;
+    },
 
     // handle sort change event from SortingButton
     sortChanged(newSortOrder) {
@@ -108,17 +107,26 @@ export default {
     // handle WebSocket message
     handleWebSocketMessage(data) {
       if (data && data.status === 'success' && data.message === 'Shoe order created successfully' && data.data && data.data.shoeOrder) {
+        // handle new shoe order
         const newShoeOrder = data.data.shoeOrder;
-
-        // log the new shoe order
         console.log('New Shoe Order Created:', newShoeOrder);
-
-        // add the new shoe order to the beginning of the shoes array
         this.shoes.unshift(newShoeOrder);
+      } else if (data && data.status === 'success' && data.message === 'Shoe order details updated successfully' && data.data && data.data.updatedShoe) {
+        // handle updated shoe order
+        const updatedShoeOrder = data.data.updatedShoe;
+
+        // find  index of  updated shoe order in array
+        const index = this.shoes.findIndex(shoe => shoe._id === updatedShoeOrder._id);
+
+        // update shoe order in array
+        if (index !== -1) {
+          // directly update shoe order in array
+          this.shoes[index] = updatedShoeOrder;
+        }
       } else {
         console.log('Unhandled WebSocket message:', data);
       }
-    },
+    }
   },
 
   // fetch shoes and initialize WebSocket connection on component creation
