@@ -8,6 +8,10 @@
         <NavButton label="Orders" :active="isOrdersActive" @toggleActive="toggleActive('Orders')"/>
         <NavButton label="Profile" :active="isProfileActive" @toggleActive="toggleActive('Profile')"  />
       </div>
+      <button class="navbar__buttons__logout button text__color--white" @click="logout">
+          <span><img class="navbar__buttons__logout-icon" src="../assets/icons/logout.webp" alt=""></span>
+          Log Out
+        </button>
     </div>
   </div>
 </template>
@@ -36,6 +40,10 @@ export default {
     }
   },
   methods: {
+    logout() {
+    localStorage.removeItem('isLoggedIn'); // Clear the login status
+    this.$router.push('/'); // Navigate to the login page
+    },
     toggleActive(clickedLabel) {
       if (clickedLabel === 'Orders') {
         this.isOrdersActive = true;
@@ -58,6 +66,23 @@ export default {
   align-items: center;
   height: 72px;
   padding: 0 1rem;
+}
+
+.navbar__buttons__logout {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 2.5%;
+  right: 3%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar__buttons__logout-icon {
+  width: 20px;
+  height: 20px;
 }
 
 .navbar__content {
