@@ -1,7 +1,7 @@
 <template>
   <div class="login-page__block">
     <logo-component class="login-page__logo"></logo-component>
-    <login-panel class="login-page__panel" @login="handleLogin"></login-panel>
+      <login-panel class="login-page__panel" @login="handleLogin"></login-panel>
   </div>
 </template>
 
@@ -52,11 +52,8 @@ export default {
 </script>
 
 <style>
+
 .login-page__block {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
   margin-left: auto;
   margin-right: 0;
   height: 100vh;
@@ -66,6 +63,14 @@ export default {
 
 .login-page__logo {
  margin-left: 156px;
+ margin-top: 40px;
+}
+
+.login-page__panel {
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 </style>

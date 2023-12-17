@@ -60,7 +60,6 @@ export default {
 .login-panel__block, .login-panel__block__form {
   display: flex;
   flex-direction: column;
-  align-items: left;
   justify-content: center;
 }
 
