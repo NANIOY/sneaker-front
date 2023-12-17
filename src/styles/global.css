@@ -7,4 +7,18 @@
     padding: 9px 12px;
     width: 374px;
 }
+
+@media screen and (max-width: 710px) {
+    .login-panel__block__input, .profile-panel__block__input {
+        width: 284px;
+
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .login-panel__block__input, .profile-panel__block__input {
+        width: 160px;
+    }
+    
+}
   

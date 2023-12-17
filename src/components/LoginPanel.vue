@@ -73,4 +73,11 @@ export default {
   text-align: left;
 }
 
+@media screen and (max-width: 768px) {
+  .header {
+    font-size: 52px !important;
+  }
+  
+}
+
 </style>

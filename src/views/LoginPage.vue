@@ -73,4 +73,24 @@ export default {
   transform: translateY(-50%);
 }
 
+@media screen and (max-width: 768px) {
+
+  .login-page__panel {
+    right: 4%;
+  }
+
+  .login-page__logo {
+    margin-left: 50px;
+  }
+  
+}
+
+@media screen and (max-width: 370px) {
+
+.login-page__panel {
+  right: 0%;
+}
+
+}
+
 </style>
