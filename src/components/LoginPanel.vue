@@ -75,7 +75,7 @@ export default {
 
 @media screen and (max-width: 768px) {
   .header {
-    font-size: 52px !important;
+    font-size: 52px;
   }
   
 }
