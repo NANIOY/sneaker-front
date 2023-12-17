@@ -71,16 +71,15 @@ export default {
 <style scoped>
 .status-button {
   position: relative;
-  margin-top: 36px;
+  margin-top: 12px;
   user-select: none;
-  /* background-color: var(--white); */
 }
 
 .normal-button {
   height: 48px;
   display: flex;
   align-items: center;
-  padding-left: 4px;
+  padding-left: 12px;
 }
 
 div {
@@ -94,4 +93,16 @@ div {
   cursor: pointer;
   margin: 16px;
 }
+
+
+@media screen and (max-width: 600px) {
+  .status-button {
+    margin-top: 6px;
+  }
+
+  .dropdown-item {
+    margin: 8px;
+  }
+}
 </style>
+

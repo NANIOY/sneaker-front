@@ -73,7 +73,8 @@ export default {
 
 <style scoped>
 .shoe-popup {
-  width: 600px;
+  width: 80%;
+  max-width: 600px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -83,62 +84,59 @@ export default {
 
 .popup-content {
   text-align: left;
-  padding: 36px 48px;
+  padding: 1vw 2.5vw;
 }
 
 .header__medium {
-  margin-bottom: 12px;
+  margin: 12px 0 12px 0;
   font-size: 36px;
 }
 
 .text {
-  margin: 8px 0;
+  margin: 0.8vw 0;
 }
 
 .user {
   display: flex;
   flex-direction: column;
-  margin-bottom: 12px;
 }
 
 .user--contact,
 .user--extra {
   display: flex;
   align-items: center;
+  margin-top: -0.5vw;
 }
 
 .dot {
-  width: 4px;
-  height: 4px;
+  width: 0.5vw;
+  height: 0.5vw;
   background-color: var(--white);
   border-radius: 50%;
-  margin: 0 8px;
+  margin: 0 0.4vw;
 }
 
-.header__small {
-  margin-top: 24px;
+.header__small,
+.details-section {
+  margin-top: 16px;
 }
 
 .line {
-  height: 1px;
+  height: 0.1vw;
   background-color: var(--white);
   margin-top: -16px;
 }
 
-.details-section {
-  margin-top: 12px;
-}
-
 .close-button {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 0.5vw;
+  right: 0.5vw;
   width: 24px;
   height: 24px;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  margin-right: 16px;
+  margin-right: 1.6vw;
 }
 
 .close-button::before,
@@ -161,5 +159,23 @@ export default {
 .close-button:hover::before,
 .close-button:hover::after {
   background-color: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .header__medium {
+    font-size: 28px;
+  }
+  .header__small {
+    font-size: 20px;
+  }
+  .text__large {
+    font-size: 16px;
+  }
+  .text .text__normal--details {
+    font-size: 14px;
+  }
+  .shoe-popup {
+    width: 90%;
+  }
 }
 </style>
