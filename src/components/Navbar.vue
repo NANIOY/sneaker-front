@@ -70,7 +70,6 @@ export default {
 .navbar__logo {
   position: absolute;
   left: 156px;
-
 }
 
 .navbar__buttons {
@@ -78,5 +77,17 @@ export default {
   gap: 16px;
   justify-content: center;
   flex-grow: 1;
+}
+
+@media screen and (max-width: 1000px) {
+  .navbar__logo {
+    left: 40px;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .navbar__logo {
+    display: none;
+  }
 }
 </style>
