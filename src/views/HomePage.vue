@@ -1,7 +1,10 @@
 <template>
   <div>
     <Navbar />
-    <SortingButton :sortOrder="sortOrder" @sort-changed="sortChanged" />
+    <div class="header-container">
+      <SortingButton :sortOrder="sortOrder" @sort-changed="sortChanged" />
+      <p class="total-shoes ">Total Shoes: {{ shoes.length }}</p>
+    </div>
     <div v-if="loading">Loading...</div>
     <div v-else class="shoes-container">
       <div class="shoe-object" v-for="shoe in sortedShoes" :key="shoe._id">
@@ -18,7 +21,7 @@
 
 <script>
 import Navbar from '../components/Navbar.vue';
-import SortingButton from '../components/SortingButton.vue';
+import SortingButton from '../components/Buttons/SortingButton.vue';
 import ShoeObject from '../components/ShoeObject.vue';
 
 export default {
@@ -145,6 +148,17 @@ export default {
 </script>
 
 <style scoped>
+.header-container {
+  display: flex;
+  align-items: center;
+  margin: 10px 8%;
+  background-color: red;
+}
+
+.total-shoes {
+  margin: 0;
+  background-color: blue;
+}
 .shoes-container {
   display: flex;
   flex-wrap: wrap;
