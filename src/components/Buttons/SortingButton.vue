@@ -1,6 +1,7 @@
 <template>
   <div class="button button__normal text__color--black" @click="toggleSortOrder">
-    <span> Sort Order: {{ sortOrder }}</span>
+    <img class="icon" src="../../assets/icons/sort.webp" alt="Sort Icon" />
+    <span>{{ sortOrder === 'asc' ? 'Ascending' : 'Descending' }}</span>
   </div>
 </template>
 
@@ -21,5 +22,13 @@ export default {
 div {
   cursor: pointer;
   user-select: none;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
 }
 </style>
