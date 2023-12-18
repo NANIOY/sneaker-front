@@ -11,6 +11,8 @@
       <label class="login-panel__block__label text__large label" for="username">Password</label>
       <input class="login-panel__block__input input__text input" id="password" type="password" v-model="password" placeholder="Password" />
 
+      <p class="login-panel__error" v-if="displayError">Invalid username or password.</p>
+
       <Button class="login-panel__block__button" @click="login">Log in</Button>
 
     </form>
@@ -25,6 +27,9 @@ export default {
   components: {
     Button
   },
+  props: {
+    displayError: Boolean
+  },
   data() {
     return {
       username: '',
@@ -37,6 +42,9 @@ export default {
         username: this.username,
         password: this.password
       });
+    },
+    showError(message) {
+      this.errorMessage = message; // Method to set the error message
     }
   }
 };
@@ -55,6 +63,11 @@ export default {
   padding: 40px 80px;
   margin-left: auto;
   margin-right: 0;
+}
+
+.login-panel__error {
+  color: red;
+  margin-bottom: -20px;
 }
 
 .login-panel__block, .login-panel__block__form {
