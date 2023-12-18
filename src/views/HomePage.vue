@@ -1,7 +1,13 @@
 <template>
   <div>
     <Navbar />
-    <SortingButton :sortOrder="sortOrder" @sort-changed="sortChanged" />
+    <div class="header-container">
+      <SortingButton :sortOrder="sortOrder" @sort-changed="sortChanged" />
+      <div class="total-shoes">
+        <img class="icon" src="../assets/icons/steps.webp" alt="Steps Icon" />
+        <p class="button button__normal text__color--black">{{ shoes.length }}</p>
+      </div>
+    </div>
     <div v-if="loading">Loading...</div>
     <div v-else class="shoes-container">
       <div class="shoe-object" v-for="shoe in sortedShoes" :key="shoe._id">
@@ -18,7 +24,7 @@
 
 <script>
 import Navbar from '../components/Navbar.vue';
-import SortingButton from '../components/SortingButton.vue';
+import SortingButton from '../components/Buttons/SortingButton.vue';
 import ShoeObject from '../components/ShoeObject.vue';
 
 export default {
@@ -145,11 +151,30 @@ export default {
 </script>
 
 <style scoped>
+.header-container {
+  display: flex;
+  align-items: center;
+  margin: 1% 8%;
+}
+
+.total-shoes {
+  display: flex;
+  align-items: center;
+  margin-left: 32px;
+  user-select: none;
+}
+
+.icon {
+  width: 20px; /* Set the width and height as needed */
+  height: 20px;
+  margin-right: 4px; /* Add some spacing between the icon and text */
+}
+
 .shoes-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 2% 8%;
+  margin: 1% 8%;
   gap: 2.2%;
 }
 

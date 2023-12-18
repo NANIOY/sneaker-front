@@ -66,6 +66,7 @@ export default {
   align-items: center;
   height: 72px;
   padding: 0 1rem;
+  user-select: none;
 }
 
 .navbar__buttons__logout {
