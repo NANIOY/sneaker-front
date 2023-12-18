@@ -3,7 +3,10 @@
     <Navbar />
     <div class="header-container">
       <SortingButton :sortOrder="sortOrder" @sort-changed="sortChanged" />
-      <p class="total-shoes ">Total Shoes: {{ shoes.length }}</p>
+      <div class="total-shoes">
+        <img class="icon" src="../assets/icons/steps.webp" alt="Steps Icon" />
+        <p class="button button__normal text__color--black">{{ shoes.length }}</p>
+      </div>
     </div>
     <div v-if="loading">Loading...</div>
     <div v-else class="shoes-container">
@@ -152,13 +155,20 @@ export default {
   display: flex;
   align-items: center;
   margin: 10px 8%;
-  background-color: red;
 }
 
 .total-shoes {
-  margin: 0;
-  background-color: blue;
+  display: flex;
+  align-items: center;
+  margin-left: 32px;
 }
+
+.icon {
+  width: 20px; /* Set the width and height as needed */
+  height: 20px;
+  margin-right: 4px; /* Add some spacing between the icon and text */
+}
+
 .shoes-container {
   display: flex;
   flex-wrap: wrap;
