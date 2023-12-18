@@ -1,7 +1,7 @@
 <template>
   <div class="login-page__block">
     <logo-component class="login-page__logo"></logo-component>
-      <login-panel class="login-page__panel" @login="handleLogin"></login-panel>
+      <login-panel class="login-page__panel" :display-error="displayError" @login="handleLogin"></login-panel>
   </div>
 </template>
 
@@ -15,8 +15,14 @@ export default {
     LoginPanel,
     LogoComponent
   },
+  data() { // Define the data function here
+    return {
+      displayError: false // Define displayError in the data function
+    };
+  },
   methods: {
   handleLogin(credentials) {
+    this.displayError = false; // Reset the error message
     fetch('https://sneaker-back.onrender.com/api/v1/auth/login', {
       method: 'POST',
       headers: {
@@ -44,6 +50,7 @@ export default {
     .catch(error => {
       console.error('Login Error:', error);
       // Handle login error, e.g., displaying a message to the user
+      this.displayError = true;
     });
   }
 }
