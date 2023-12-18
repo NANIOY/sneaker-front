@@ -84,7 +84,7 @@ export default {
 
 <style scoped>
 .shoe-object {
-  width: 376px;
+  width: 368px;
   height: 240px;
 }
 

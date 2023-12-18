@@ -84,16 +84,16 @@ export default {
 
 .popup-content {
   text-align: left;
-  padding: 1vw 2.5vw;
+  padding: 2% 5%;
 }
 
 .header__medium {
-  margin: 12px 0 12px 0;
+  margin: 2% 0 2% 0;
   font-size: 36px;
 }
 
 .text {
-  margin: 0.8vw 0;
+  margin: 1.6% 0;
 }
 
 .user {
@@ -105,38 +105,41 @@ export default {
 .user--extra {
   display: flex;
   align-items: center;
-  margin-top: -0.5vw;
+  margin-top: -0.5%;
 }
 
 .dot {
-  width: 0.5vw;
-  height: 0.5vw;
+  width: 8px;
+  height: 8px;
   background-color: var(--white);
   border-radius: 50%;
-  margin: 0 0.4vw;
+  margin: 0 2%;
 }
 
-.header__small,
+.header__small {
+  margin-top: 3.5%;
+}
+
 .details-section {
-  margin-top: 16px;
+  margin-top: 3%;
 }
 
 .line {
-  height: 0.1vw;
+  height: 1px;
   background-color: var(--white);
-  margin-top: -16px;
+  margin-top: -3%;
 }
 
 .close-button {
   position: absolute;
-  top: 0.5vw;
-  right: 0.5vw;
+  top: 0.5%;
+  right: 0.5%;
   width: 24px;
   height: 24px;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  margin-right: 1.6vw;
+  margin-right: 1.6%;
 }
 
 .close-button::before,
@@ -177,5 +180,14 @@ export default {
   .shoe-popup {
     width: 90%;
   }
+  .user--contact,
+.user--extra {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.dot {
+  display: none;
+}
 }
 </style>
