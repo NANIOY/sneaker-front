@@ -166,9 +166,9 @@ export default {
 }
 
 .icon {
-  width: 20px; /* Set the width and height as needed */
+  width: 20px;
   height: 20px;
-  margin-right: 4px; /* Add some spacing between the icon and text */
+  margin-right: 4px;
 }
 
 .shoes-container {
