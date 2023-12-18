@@ -161,6 +161,7 @@ export default {
   display: flex;
   align-items: center;
   margin-left: 32px;
+  user-select: none;
 }
 
 .icon {
