@@ -17,7 +17,7 @@ export default {
     return {
       isDropdownOpen: false,
       selectedStatus: this.initialStatus, // initialize with the current status
-      statusOptions: ['Order Placed', 'In Production', 'Shipped', 'Delivered', 'Cancelled'],
+      statusOptions: ['Order Placed', 'In Production', 'Shipped', 'Delivered', 'Cancelled'], // Added 'Cancelled' option
       isRequesting: false, // flag to track ongoing requests
     };
   },
@@ -26,40 +26,68 @@ export default {
       this.isDropdownOpen = !this.isDropdownOpen;
     },
     async handleStatusChange(event) {
-      if (this.isRequesting) {
-        return; // do nothing if a request is ongoing
+  if (this.isRequesting) {
+    return; // do nothing if a request is ongoing
+  }
+
+  const selectedOption = event.target.textContent;
+  this.selectedStatus = selectedOption;
+  this.isDropdownOpen = false;
+
+  // set isRequesting to true to disable the button
+  this.isRequesting = true;
+
+  try {
+    const authToken = localStorage.getItem('authToken'); // retrieve the authentication token from localStorage
+
+    if (!authToken) {
+      console.error('Authentication token not found.');
+      return; // if the token is not found, do not proceed with the request
+    }
+
+    console.log('Retrieved Token:', authToken);
+
+    if (selectedOption === 'Cancelled') {
+      // if 'Cancelled' is selected, make a DELETE request to the database
+      const response = await fetch(`https://sneaker-back.onrender.com/api/v1/shoes/${this.userId}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `${authToken}`, // include the authentication token in the headers
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const selectedOption = event.target.textContent;
-      this.selectedStatus = selectedOption;
-      this.isDropdownOpen = false;
+      const data = await response.json();
+      console.log('Server response:', data);
+    } else {
+      // for other status options, make a PATCH request to update the status in the database
+      const response = await fetch(`https://sneaker-back.onrender.com/api/v1/shoes/${this.userId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `${authToken}`, // include the authentication token in the headers
+        },
+        body: JSON.stringify({ status: selectedOption }),
+      });
 
-      // set isRequesting to true to disable the button
-      this.isRequesting = true;
-
-      try {
-        // make a PATCH request to update the status in the database
-        const response = await fetch(`https://sneaker-back.onrender.com/api/v1/shoes/${this.userId}`, {
-          method: 'PATCH',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ status: selectedOption }),
-        });
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        console.log('Server response:', data);
-      } catch (error) {
-        console.error('Error updating status:', error);
-      } finally {
-        // reset isRequesting to enable the button
-        this.isRequesting = false;
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
-    },
+
+      const data = await response.json();
+      console.log('Server response:', data);
+    }
+  } catch (error) {
+    console.error('Error updating status:', error);
+  } finally {
+    // reset isRequesting to enable the button
+    this.isRequesting = false;
+  }
+},
   },
   props: {
     userId: String,
@@ -105,4 +133,3 @@ div {
   }
 }
 </style>
-
