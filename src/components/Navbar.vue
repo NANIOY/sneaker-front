@@ -67,13 +67,17 @@ export default {
   height: 72px;
   padding: 0 1rem;
   user-select: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .navbar__buttons__logout {
   background-color: transparent;
   border: none;
   position: absolute;
-  top: 2.5%;
+  top: 34%;
   right: 3%;
   cursor: pointer;
   display: flex;

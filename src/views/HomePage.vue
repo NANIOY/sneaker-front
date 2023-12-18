@@ -154,7 +154,8 @@ export default {
 .header-container {
   display: flex;
   align-items: center;
-  margin: 1% 8%;
+  margin: 1% 9.5%;
+  margin-top: 100px;
 }
 
 .total-shoes {
@@ -175,10 +176,7 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   margin: 1% 8%;
-  gap: 2.2%;
+  gap: 20px;
 }
 
-.shoe-object {
-  margin-bottom: 2%;
-}
 </style>
