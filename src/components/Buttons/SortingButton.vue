@@ -26,6 +26,10 @@ div {
   align-items: center;
 }
 
+span {
+  width: 88px;
+}
+
 .icon {
   width: 20px;
   height: 20px;
