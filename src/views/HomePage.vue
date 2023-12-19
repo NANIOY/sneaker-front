@@ -11,13 +11,28 @@
     <div v-if="loading">Loading...</div>
     <div v-else class="shoes-container">
       <div class="shoe-object" v-for="shoe in sortedShoes" :key="shoe._id">
-        <ShoeObject :shoe-type="shoe.shoeType" :isPopupOpen="isPopupOpen" @popup-toggled="togglePopup"
-          :user-name="shoe.userName" :user-email="shoe.userEmail" :user-id="shoe._id" :status="shoe.status"
-          :shoe-size="shoe.shoeSize" :shoe-color-sole="shoe.shoeColorSole" :shoe-color-laces="shoe.shoeColorLaces"
-          :shoe-color-panel-down="shoe.shoeColorPanelDown" :shoe-color-panel-up="shoe.shoeColorPanelUp"
-          :shoe-material-panel-down="shoe.shoeMaterialPanelDown" :shoe-material-panel-up="shoe.shoeMaterialPanelUp"
-          :jewel="shoe.jewel" :initials="shoe.initials" :user-address="shoe.userAddress" />
-      </div>
+  <ShoeObject
+    :shoe-type="shoe.shoeType"
+    :isPopupOpen="isPopupOpen"
+    @popup-toggled="togglePopup"
+    :user-name="shoe.userName"
+    :user-email="shoe.userEmail"
+    :user-id="shoe._id"
+    :status="shoe.status"
+    :shoe-size="shoe.shoeSize"
+    :shoe-color-sole="shoe.shoeColorSole"
+    :shoe-color-laces="shoe.shoeColorLaces"
+    :shoe-color-panel-down="shoe.shoeColorPanelDown"
+    :shoe-color-panel-up="shoe.shoeColorPanelUp"
+    :shoe-material-panel-down="shoe.shoeMaterialPanelDown"
+    :shoe-material-panel-up="shoe.shoeMaterialPanelUp"
+    :jewel="shoe.jewel"
+    :initials="shoe.initials"
+    :user-address="shoe.userAddress"
+    :initialStatus="shoe.initialStatus"
+  />
+</div>
+
     </div>
   </div>
 </template>
@@ -59,14 +74,17 @@ export default {
           return response.json();
         })
         .then(data => {
-          if (data && data.data && data.data.shoeOrders) {
-            // update shoes data and set loading to false
-            this.shoes = data.data.shoeOrders;
-            this.loading = false;
-          } else {
-            console.error('Invalid data structure received from server:', data);
-          }
-        })
+  if (data && data.data && data.data.shoeOrders) {
+    // update shoes data and set loading to false
+    this.shoes = data.data.shoeOrders.map(shoe => ({
+      ...shoe,
+      initialStatus: shoe.status, // Set initialStatus based on current status
+    }));
+    this.loading = false;
+  } else {
+    console.error('Invalid data structure received from server:', data);
+  }
+})
         .catch(error => {
           console.error('Error fetching shoes:', error);
           this.loading = false;

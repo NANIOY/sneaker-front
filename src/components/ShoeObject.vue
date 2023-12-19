@@ -8,30 +8,16 @@
           <p class="text text__normal text__color--black">{{ userEmail }}</p>
         </div>
       </div>
-      <div class="shoe-status surface__dark">
-        <span class="text text__small text__color--white">{{ status }}</span>
+      <div :class="['shoe-status', statusClass]">
+        <span class="text text__small">{{ status }}</span>
       </div>
     </div>
     <DetailsButton @show-details="showDetails" />
-    <ShoePopup
-      v-if="isDetailsVisible"
-      @close-details="hideDetails"
-      :shoeType="shoeType"
-      :userName="userName"
-      :userEmail="userEmail"
-      :userId="userId"
-      :status="status"
-      :shoeSize="shoeSize"
-      :shoeColorSole="shoeColorSole"
-      :shoeColorLaces="shoeColorLaces"
-      :shoeColorPanelDown="shoeColorPanelDown"
-      :shoeColorPanelUp="shoeColorPanelUp"
-      :shoeMaterialPanelDown="shoeMaterialPanelDown"
-      :shoeMaterialPanelUp="shoeMaterialPanelUp"
-      :jewel="jewel"
-      :initials="initials"
-      :userAddress="userAddress"
-    />
+    <ShoePopup v-if="isDetailsVisible" @close-details="hideDetails" :shoeType="shoeType" :userName="userName"
+      :userEmail="userEmail" :userId="userId" :status="status" :shoeSize="shoeSize" :shoeColorSole="shoeColorSole"
+      :shoeColorLaces="shoeColorLaces" :shoeColorPanelDown="shoeColorPanelDown" :shoeColorPanelUp="shoeColorPanelUp"
+      :shoeMaterialPanelDown="shoeMaterialPanelDown" :shoeMaterialPanelUp="shoeMaterialPanelUp" :jewel="jewel"
+      :initials="initials" :userAddress="userAddress" :isPopupOpen="isPopupOpen" />
   </div>
 </template>
 
@@ -67,18 +53,34 @@ export default {
       isDetailsVisible: false,
     };
   },
+  computed: {
+    statusClass() {
+      const statusClassMap = {
+        'Order Placed': 'status-order-placed',
+        'In Production': 'status-in-production',
+        'Shipped': 'status-shipped',
+        'Delivered': 'status-delivered',
+        'Delete': 'status-cancelled',
+      };
+
+      // set a default status if status is empty or not found in statusClassMap
+      const defaultStatus = 'Order Placed';
+
+      return statusClassMap[this.status] || statusClassMap[defaultStatus];
+    },
+  },
   methods: {
-  showDetails() {
-    if (!this.isPopupOpen) {
-      this.isDetailsVisible = true;
-      this.$emit('popup-toggled', true); // Notify that the popup is open
-    }
+    showDetails() {
+      if (!this.isPopupOpen) {
+        this.isDetailsVisible = true;
+        this.$emit('popup-toggled', true); // notify that the popup is open
+      }
+    },
+    hideDetails() {
+      this.isDetailsVisible = false;
+      this.$emit('popup-toggled', false); // notify that the popup is closed
+    },
   },
-  hideDetails() {
-    this.isDetailsVisible = false;
-    this.$emit('popup-toggled', false); // Notify that the popup is closed
-  },
-},
 };
 </script>
 
