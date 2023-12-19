@@ -115,14 +115,14 @@ export default {
   height: 48px;
   display: flex;
   align-items: center;
-  padding-left: 4px;
+  padding-left: 2px;
 }
 
 div {
   cursor: pointer;
   width: 100%;
   text-align: left;
-  padding: 4px;
+  padding: 2px;
 }
 
 .dropdown-item {
