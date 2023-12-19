@@ -47,7 +47,7 @@ export default {
 
     console.log('Retrieved Token:', authToken);
 
-    if (selectedOption === 'Cancelled') {
+    if (selectedOption === 'Cancelled' && !confirm('Are you sure you want to cancel this order?')) {
       // if 'Cancelled' is selected, make a DELETE request to the database
       const response = await fetch(`https://sneaker-back.onrender.com/api/v1/shoes/${this.userId}`, {
         method: 'DELETE',
