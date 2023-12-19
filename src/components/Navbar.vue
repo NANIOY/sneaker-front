@@ -71,6 +71,7 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 500;
 }
 
 .navbar__buttons__logout {
