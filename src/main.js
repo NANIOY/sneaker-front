@@ -21,9 +21,6 @@ websocket.addEventListener('error', (event) => {
   console.error('WebSocket error:', event);
 });
 
-// attach the websocket to the app instance
-app.config.globalProperties.$websocket = websocket;
-
 // mount the app
 app.use(router);
 app.mount('#app');
