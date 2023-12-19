@@ -32,7 +32,6 @@ export default {
       }
 
       const selectedOption = event.target.textContent;
-      this.selectedStatus = selectedOption;
       this.isDropdownOpen = false;
 
       // set isRequesting to true to disable the button
@@ -71,7 +70,10 @@ export default {
             console.log('Server response:', data);
           }
         } else {
+          this.selectedStatus = selectedOption;
+
           // for other status options, make a PATCH request to update the status in the database
+          
           const response = await fetch(`https://sneaker-back.onrender.com/api/v1/shoes/${this.userId}`, {
             method: 'PATCH',
             headers: {
