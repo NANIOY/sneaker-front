@@ -10,7 +10,7 @@
       </div>
       <button class="navbar__buttons__logout button text__color--white" @click="logout">
           <span><img class="navbar__buttons__logout-icon" src="../assets/icons/logout.webp" alt=""></span>
-          Log Out
+          <p class="navbar__buttons__logout-text">Log Out</p>
         </button>
     </div>
   </div>
@@ -86,6 +86,11 @@ export default {
   gap: 8px;
 }
 
+.navbar__buttons__logout-text {
+  margin: 0;
+  padding: 0;
+}
+
 .navbar__buttons__logout-icon {
   width: 20px;
   height: 20px;
@@ -114,11 +119,34 @@ export default {
   .navbar__logo {
     left: 40px;
   }
+
+  .navbar__buttons__logout {
+  right: 8%;
+}
 }
 
 @media screen and (max-width: 770px) {
   .navbar__logo {
     display: none;
   }
+}
+
+@media screen and (max-width: 550px) {
+  .navbar__buttons {
+    justify-content: left;
+    gap: 4px;
+  }
+
+  .navbar__buttons__logout {
+  right: 12%;
+  gap: 4px;
+}
+}
+
+@media screen and (max-width: 370px) {
+  .navbar__buttons__logout-text {
+  display: none;
+}
+
 }
 </style>
