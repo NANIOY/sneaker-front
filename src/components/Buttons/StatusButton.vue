@@ -1,6 +1,6 @@
 <template>
   <div class="status-button button button__large">
-    <div @click="toggleDropdown" :disabled="isRequesting" :class="{ active: isDropdownOpen }" class="normal-button body">
+    <div @click="toggleDropdown" :disabled="isRequesting" :class="{ active: isDropdownOpen }" class="normal-button body"><img src="../../assets/icons/drop-down.webp" alt="drop down icon">
       {{ selectedStatus }}
     </div>
     <div v-if="isDropdownOpen" @click="handleStatusChange" class="surface__dark">
@@ -107,7 +107,7 @@ export default {
   height: 48px;
   display: flex;
   align-items: center;
-  padding-left: 12px;
+  padding-left: 4px;
 }
 
 div {
