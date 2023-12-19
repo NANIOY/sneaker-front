@@ -18,7 +18,7 @@ export default {
     return {
       isDropdownOpen: false,
       selectedStatus: this.initialStatus, // initialize with the current status
-      statusOptions: ['Order Placed', 'In Production', 'Shipped', 'Delivered', 'Cancelled'], // Added 'Cancelled' option
+      statusOptions: ['Order Placed', 'In Production', 'Shipped', 'Delivered', 'Delete'], // Added 'Cancelled' option
       isRequesting: false, // flag to track ongoing requests
     };
   },
@@ -48,9 +48,9 @@ export default {
         console.log('Retrieved Token:', authToken);
 
         // check if the selected option is 'Cancelled'
-        if (selectedOption === 'Cancelled') {
+        if (selectedOption === 'Delete') {
           // Ask for confirmation
-          const userConfirmed = confirm('Are you sure you want to cancel this order?');
+          const userConfirmed = confirm('Are you sure you want to delete this order?');
 
           // only proceed with the DELETE request if the user confirmed
           if (userConfirmed) {
@@ -73,7 +73,6 @@ export default {
           this.selectedStatus = selectedOption;
 
           // for other status options, make a PATCH request to update the status in the database
-          
           const response = await fetch(`https://sneaker-back.onrender.com/api/v1/shoes/${this.userId}`, {
             method: 'PATCH',
             headers: {
