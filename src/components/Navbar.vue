@@ -79,7 +79,7 @@ export default {
   border: none;
   position: absolute;
   top: 34%;
-  right: 3%;
+  right: 200px;
   cursor: pointer;
   display: flex;
   align-items: center;
