@@ -7,6 +7,11 @@
   --purple: #9D70FF;
   --yellow: #FFEE54;
   --black-gradient: linear-gradient(45deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 100%);
+  --blue: #8855f5;
+  --orange: #f18541;
+  --teal: #50e69d;
+  --red: #FF475A;
+
 }
 
 .text__color--white {
@@ -27,7 +32,8 @@
   background-color: var(--black);
 }
 
-.label, .input {
+.label,
+.input {
   color: var(--white);
 }
 
@@ -51,13 +57,26 @@
   color: var(--white-opacity-50);
 }
 
-/* shoe types block */
-.shoe__purple {
-  color: var(--purple);
+/* shoe status colors */
+.status-delivered {
+  background-color: var(--green);
 }
 
-.shoe__yellow {
-  color: var(--yellow);
+.status-order-placed {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.status-in-production {
+  background-color: var(--orange);
+}
+
+.status-shipped {
+  background-color: var(--teal);
+}
+
+.status-cancelled {
+  background-color: var(--red);
 }
 
 /* gradient background block */
